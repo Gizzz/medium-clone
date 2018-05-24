@@ -1,0 +1,9 @@
+{
+  "name": "medium-clone",
+  "version": "0.1.0",
+  "description": "Yet another clone of medium.com",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
