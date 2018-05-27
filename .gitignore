@@ -1,1 +1,5 @@
+# folders
 node_modules/
+
+# files
+markup-static/styles/index.css
