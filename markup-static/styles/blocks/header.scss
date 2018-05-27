@@ -2,7 +2,9 @@ header.page {
   .inner {
     display: flex;
     align-items: center;
+    margin: 0 auto;
     padding: 0 20px;
+    max-width: 1000px;
     height: 56px;
 
     .logo {
