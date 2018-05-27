@@ -1,0 +1,10 @@
+@import '_variables';
+@import '_mixins';
+
+@import 'vendor/normalize';
+@import 'custom-resets';
+@import 'common';
+
+@import 'shared/index';
+@import 'blocks/header';
+@import 'blocks/big-img';

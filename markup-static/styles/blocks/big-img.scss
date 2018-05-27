@@ -1,0 +1,20 @@
+.big-img {
+  position: relative;
+  display: table;
+  width: 200%;
+  table-layout: fixed;
+
+  .inner-img {
+    background-image: url(https://cdn-images-1.medium.com/max/2000/1*JVwi6UU_AJzhMkp1kMVc7A.jpeg);
+    background-position: 48.92857142857143% 32% !important;
+    background-size: cover!important;
+
+    position: relative;
+    display: table-cell;
+    width: 50%;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+}
+
+

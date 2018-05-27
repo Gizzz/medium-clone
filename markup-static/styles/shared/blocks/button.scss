@@ -1,0 +1,17 @@
+.btn {
+  display: inline-block;
+  border: 1px solid $color-btn-border;
+  border-radius: 4px;
+  padding: 0 14px;
+  height: 33px;
+  line-height: 33px;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 0 16px;
+    height: 37px;
+    line-height: 37px;
+  }
+}
