@@ -1,3 +1,21 @@
+// * {
+//   outline: 1px solid red;
+// }
+
+*,
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html {
   font-family: 'medium-content-sans-serif-font', sans-serif;
   font-size: 20px;
@@ -10,6 +28,11 @@ body {
   min-height: 2000px;
 }
 
-// * {
-//   outline: 1px solid red;
-// }
+a {
+  text-decoration: none;
+  color: $color-link-text;
+}
+
+ul {
+  list-style: none;
+}
