@@ -1,5 +1,5 @@
-@mixin make-center($width: 1000px, $padding-horizontal: 20px) {
+@mixin make-center($width: 1000px, $padding: 20px) {
   margin: 0 auto;
-  padding: 0 $padding-horizontal;
-  max-width: $width;
+  padding: 0 $padding;
+  max-width: $width + $padding * 2;
 }
