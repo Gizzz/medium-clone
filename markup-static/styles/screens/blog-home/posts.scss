@@ -29,16 +29,20 @@
     .text {
       padding-top: 15px;
 
-      h3 {
-        padding-top: 5px;
-        padding-bottom: 2px;
-        font-size: 26px;
-        line-height: 1.1;
-      }
+      .text-link {
+        color: inherit;
 
-      p {
-        margin-top: 7px;
-        color: $color-font-secondary;
+        h3 {
+          padding-top: 5px;
+          padding-bottom: 2px;
+          font-size: 26px;
+          line-height: 1.1;
+        }
+  
+        p {
+          margin-top: 7px;
+          color: $color-font-secondary;
+        }
       }
 
       .meta {
@@ -78,6 +82,7 @@
     grid-template-columns: repeat(3, [col-start] 1fr);
     grid-column-gap: 24px;
     grid-row-gap: 30px;
+    padding-bottom: 55px;
 
     .post {
       margin-bottom: 30px;
@@ -122,9 +127,11 @@
       .text {
         padding-top: 0px;
 
-        h3 {
-          font-size: 38px;
-          line-height: 1.1;
+        .text-link {
+          h3 {
+            font-size: 38px;
+            line-height: 1.1;
+          }
         }
       }
     }
