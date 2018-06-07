@@ -1,4 +1,9 @@
 header.page {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: $color-bg-white-transparent;
+
   .inner {
     @include make-center();
     
