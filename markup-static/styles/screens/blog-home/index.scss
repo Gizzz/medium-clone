@@ -1,5 +1,7 @@
-@import 'header';
-@import 'blog-header';
-@import 'pre-content';
-@import 'posts';
-@import 'footer';
+main.blog-home {
+  @import 'header';
+  @import 'blog-header';
+  @import 'pre-content';
+  @import 'posts';
+  @import 'footer';
+}
