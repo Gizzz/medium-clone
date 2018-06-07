@@ -6,14 +6,14 @@ header.page {
     align-items: center;
     height: 56px;
 
-    .logo {
+    .link-set {
       // flex-item props
       flex: 1 1 auto;
       // flex-container props
       display: flex;
       align-items: center;
 
-      &__icon {
+      .logo {
         display: block;
         width: 45px;
         height: 45px;
@@ -53,6 +53,10 @@ header.page {
         margin-left: 8px;
         height: 25px;
         fill: $color-font-secondary;
+
+        &:hover {
+          fill: $color-font-secondary-hover;
+        }
       }
     }
 
@@ -70,7 +74,7 @@ header.page {
     .inner {
       height: 65px;
 
-      .logo {
+      .link-set {
         .devider {
           height: 28px;
         }
