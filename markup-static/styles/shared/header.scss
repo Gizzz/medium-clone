@@ -7,13 +7,52 @@ header.page {
     height: 56px;
 
     .logo {
+      // flex-item props
       flex: 1 1 auto;
+      // flex-container props
+      display: flex;
+      align-items: center;
 
       &__icon {
         display: block;
         width: 45px;
         height: 45px;
         fill: $color-font-primary;
+      }
+
+      .devider {
+        margin-left: 15px;
+        margin-right: 20px;
+        border-left: 1px solid $color-image-border;
+        height: 24px;
+      }
+
+      .avatar {
+        align-self: center;
+
+        img {
+          display: block;
+          width: 30px;
+          height: 30px;
+          border-radius: 3px;
+        }
+      }
+
+      .btn.follow,
+      .twitter {
+        display: none;
+      }
+
+      .btn.follow {
+        margin-left: 18px;
+      }
+
+      .twitter {
+        position: relative;
+        top: -1px;
+        margin-left: 8px;
+        height: 25px;
+        fill: $color-font-secondary;
       }
     }
 
@@ -30,6 +69,24 @@ header.page {
   header.page {
     .inner {
       height: 65px;
+
+      .logo {
+        .devider {
+          height: 28px;
+        }
+
+        .avatar {
+          img {
+            width: 32px;
+            height: 32px;
+          }
+        }
+
+        .btn.follow,
+        .twitter {
+          display: block;
+        }
+      }
 
       .actions {
         .sign-in {
