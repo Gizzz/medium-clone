@@ -1,4 +1,4 @@
-footer.page {
+.footing {
   @include make-center();
 
   .inner {
@@ -30,7 +30,7 @@ footer.page {
 }
 
 @media (min-width: 768px) {
-  footer.page {
+  .footing {
     .inner {
       nav {
         ul {
