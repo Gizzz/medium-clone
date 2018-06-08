@@ -1,0 +1,31 @@
+.avatar {
+  img {
+    display: block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+}
+
+.avatar--big {
+  img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .avatar {
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  .avatar--big {
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
