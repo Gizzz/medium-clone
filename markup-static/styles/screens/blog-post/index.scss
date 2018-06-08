@@ -11,12 +11,12 @@ main.blog-post {
   }
 }
 
-// @media (min-width: 768px) {
-//   main.blog-post {
-//     .pre-content {
-//       .inner {
-//         border-bottom: none;
-//       }
-//     }
-//   }
-// }
+@media (min-width: 768px) {
+  main.blog-post {
+    .pre-content {
+      .inner {
+        border-bottom: none;
+      }
+    }
+  }
+}
