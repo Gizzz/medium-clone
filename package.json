@@ -13,6 +13,7 @@
   },
   "scripts": {
     "sass": "node-sass markup-static/styles/index.scss markup-static/styles/index.css -w -r --source-map=markup-static/styles/index.css.map",
+    "loc": "npx cloc markup-static/ --exclude-lang=CSS",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
