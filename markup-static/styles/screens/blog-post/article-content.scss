@@ -1,0 +1,30 @@
+article {
+  .content {
+    figure.post-image {
+      margin-top: 20px;
+      margin-bottom: 52px;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      figcaption {
+        @include make-center($padding: 30px);
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 16px;
+        line-height: 1.4;
+        color: $color-font-secondary-hover;
+        text-align: center;
+
+        a {
+          color:inherit;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

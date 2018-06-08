@@ -1,6 +1,6 @@
 main.blog-post {
   @import 'article-header';
-  // @import 'article-content';
+  @import 'article-content';
 
   .pre-content {
     .inner {
@@ -10,3 +10,13 @@ main.blog-post {
     }
   }
 }
+
+// @media (min-width: 768px) {
+//   main.blog-post {
+//     .pre-content {
+//       .inner {
+//         border-bottom: none;
+//       }
+//     }
+//   }
+// }
