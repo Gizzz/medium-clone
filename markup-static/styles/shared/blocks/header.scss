@@ -2,6 +2,7 @@ header.page {
   position: sticky;
   top: 0;
   z-index: 10;
+  border-bottom: 1px solid $color-devider-light_gray;
   background-color: $color-bg-white-transparent;
 
   .inner {
