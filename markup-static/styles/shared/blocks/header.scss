@@ -35,13 +35,6 @@ header.page {
 
       .avatar {
         align-self: center;
-
-        img {
-          display: block;
-          width: 30px;
-          height: 30px;
-          border-radius: 3px;
-        }
       }
 
       .btn.follow,
@@ -83,13 +76,6 @@ header.page {
       .link-set {
         .devider {
           height: 28px;
-        }
-
-        .avatar {
-          img {
-            width: 32px;
-            height: 32px;
-          }
         }
 
         .btn.follow,

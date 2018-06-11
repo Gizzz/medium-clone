@@ -51,13 +51,6 @@
 
         .avatar {
           align-self: center;
-
-          img {
-            display: block;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-          }
         }
 
         .sub-meta {
@@ -95,13 +88,6 @@
 
       .text {
         .meta {
-          .avatar {
-            img {
-              width: 36px;
-              height: 36px;
-            }
-          }
-
           .sub-meta {
             line-height: 22.4px;
 

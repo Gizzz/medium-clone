@@ -1,9 +1,21 @@
 .avatar {
   img {
     display: block;
+    border-radius: 50%;
+  }
+}
+
+.avatar--smaller {
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.avatar--small {
+  img {
     width: 32px;
     height: 32px;
-    border-radius: 50%;
   }
 }
 
@@ -14,18 +26,30 @@
   }
 }
 
+.avatar--circled {
+  img {
+    border-radius: 50%;
+  }
+}
+
+.avatar--squared {
+  img {
+    border-radius: 3px;
+  }
+}
+
 @media (min-width: 768px) {
-  .avatar {
+  .avatar--smaller {
     img {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
     }
   }
 
-  .avatar--big {
+  .avatar--small {
     img {
-      width: 60px;
-      height: 60px;
+      width: 36px;
+      height: 36px;
     }
   }
 }
