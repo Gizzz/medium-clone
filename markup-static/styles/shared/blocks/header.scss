@@ -38,7 +38,7 @@ header.page {
       }
 
       .btn.follow,
-      .twitter {
+      .link-icon.twitter {
         display: none;
       }
 
@@ -46,16 +46,10 @@ header.page {
         margin-left: 18px;
       }
 
-      .twitter {
+      .link-icon.twitter {
         position: relative;
         top: -1px;
         margin-left: 8px;
-        height: 25px;
-        fill: $color-font-secondary;
-
-        &:hover {
-          fill: $color-font-secondary-hover;
-        }
       }
     }
 
@@ -79,7 +73,7 @@ header.page {
         }
 
         .btn.follow,
-        .twitter {
+        .link-icon.twitter {
           display: block;
         }
       }

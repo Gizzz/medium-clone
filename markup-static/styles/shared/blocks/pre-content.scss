@@ -45,11 +45,6 @@
         display: none;
         margin-right: 3px;
         vertical-align: text-top;
-        fill: $color-font-secondary;
-
-        &:hover {
-          fill: $color-font-primary;
-        }
       }
     }
   }
@@ -73,7 +68,7 @@
 
       .actions {
         .twitter {
-          display: inline;
+          display: inline-block;
         }
       }
     }
