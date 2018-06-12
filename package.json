@@ -20,6 +20,9 @@
     "sass": "node-sass markup-static/styles/index.scss markup-static/styles/index.css -w -r --source-map=markup-static/styles/index.css.map",
     "loc": "npx cloc markup-static/ --exclude-lang=CSS --exclude-dir=vendor"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
@@ -35,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.9.1",
     "node-sass": "^4.9.0",
+    "pre-commit": "^1.2.2",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.4",
     "webpack-dev-server": "^3.1.4"
