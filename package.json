@@ -14,8 +14,8 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --config webpack.config.js --progress",
-    "lint": "eslint src/client/",
-    "lint-fix": "eslint --fix src/client/",
+    "lint": "eslint --ext .js --ext .jsx src/ ",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "node-sass markup-static/styles/index.scss markup-static/styles/index.css -w -r --source-map=markup-static/styles/index.css.map",
     "loc": "npx cloc markup-static/ --exclude-lang=CSS --exclude-dir=vendor"

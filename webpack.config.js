@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/client/index.js',
+  entry: './src/client/index.jsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public/generated'),
@@ -16,6 +16,9 @@ module.exports = {
         loader: "babel-loader"
       },
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json']
   },
   devtool: 'source-map',
   devServer: {
