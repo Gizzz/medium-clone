@@ -1,5 +1,5 @@
 node_modules/
-public/generated/
+dist/
 
 markup-static/styles/index.css
 markup-static/styles/index.css.map
