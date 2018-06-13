@@ -4,4 +4,8 @@ module.exports = {
     "browser": true,
     "node": true,
   },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/alt-text": "off",
+  }
 };
