@@ -1,0 +1,14 @@
+main.blog-post {
+  @import 'article-header';
+  @import 'article-content';
+
+  .pre-content {
+    .inner {
+      border-bottom: none;
+
+      .actions {
+        display: none;
+      }
+    }
+  }
+}
