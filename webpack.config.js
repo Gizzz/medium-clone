@@ -1,28 +1,35 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/client/index.jsx',
+  entry: './src/client/app/index.jsx',
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public/generated'),
-    publicPath: 'generated/',
+    filename: 'bundle.[hash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
-      { 
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: 'babel-loader',
       },
-    ]
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json'],
   },
+  plugins: [
+    new CleanWebpackPlugin(['dist']),
+    new HtmlWebpackPlugin({
+      template: './src/client/static/index.html',
+    }),
+  ],
   devtool: 'source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
+    contentBase: path.resolve(__dirname, 'dist'),
     port: 3000,
   },
 };
