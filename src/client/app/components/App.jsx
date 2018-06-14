@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/index.scss';
+import '../assets/styles/index.scss';
 
 import Header from './shared/Header';
 import BlogScreen from './screens/blog/BlogScreen';
