@@ -1,18 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => (
   <header className="page">
     <div className="inner">
       <div className="link-set">
-        <a className="logo" href="/">
+        <Link className="logo" to="/">
           <svg width="45" height="45" viewBox="0 0 45 45">
             <path d="M5 40V5h35v35H5zm8.56-12.627c0 .555-.027.687-.318 1.03l-2.457 2.985v.396h6.974v-.396l-2.456-2.985c-.291-.343-.344-.502-.344-1.03V18.42l6.127 13.364h.714l5.256-13.364v10.644c0 .29 0 .342-.185.528l-1.848 1.796v.396h9.19v-.396l-1.822-1.796c-.184-.186-.21-.238-.21-.528V15.937c0-.291.026-.344.21-.528l1.823-1.797v-.396h-6.471l-4.622 11.542-5.203-11.542h-6.79v.396l2.14 2.64c.239.292.291.37.291.768v10.353z" />
           </svg>
-        </a>
+        </Link>
         <span className="devider" />
-        <a className="avatar avatar--smaller avatar--squared" href="#">
+        <Link className="avatar avatar--smaller avatar--squared" to="/blogs/1/posts/1">
           <img src="https://cdn-images-1.medium.com/fit/c/64/64/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-        </a>
+        </Link>
         <button className="btn btn--smallest follow">Follow</button>
         <a className="link-icon twitter" href="#">
           <svg className="svgIcon-use" width="25" height="25" viewBox="0 0 25 25">

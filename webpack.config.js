@@ -9,6 +9,7 @@ module.exports = {
   output: {
     filename: 'js/bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -54,5 +55,6 @@ module.exports = {
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     port: 4000,
+    historyApiFallback: true,
   },
 };
