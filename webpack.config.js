@@ -22,9 +22,15 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { url: false },
+            options: { url: true },
           },
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.woff$/,
+        use: [
+          'file-loader',
         ],
       },
     ],
