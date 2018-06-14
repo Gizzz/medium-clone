@@ -22,9 +22,12 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { url: true },
+            options: { sourceMap: true },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true },
+          },
         ],
       },
       {
