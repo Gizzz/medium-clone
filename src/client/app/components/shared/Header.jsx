@@ -11,9 +11,9 @@ const Header = () => (
           </svg>
         </Link>
         <span className="devider" />
-        <Link className="avatar avatar--smaller avatar--squared" to="/blogs/1/posts/1">
+        <a className="avatar avatar--smaller avatar--squared" href="#">
           <img src="https://cdn-images-1.medium.com/fit/c/64/64/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-        </Link>
+        </a>
         <button className="btn btn--smallest follow">Follow</button>
         <a className="link-icon twitter" href="#">
           <svg className="svgIcon-use" width="25" height="25" viewBox="0 0 25 25">
