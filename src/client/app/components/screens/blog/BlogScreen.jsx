@@ -1,4 +1,7 @@
 import React from 'react';
+import PostPreview from './PostPreview';
+
+import data from './data';
 
 const BlogScreen = () => (
   <main className="blog-home">
@@ -6,8 +9,8 @@ const BlogScreen = () => (
       <div className="overlay" />
       <div className="inner">
         <div className="text">
-          <h1 className="name">Kent C. Dodds</h1>
-          <h2 className="description">Let’s make awesome with JavaScript (Photo by Luca Bravo on Unsplash)</h2>
+          <h1 className="name">{data.blog.name}</h1>
+          <h2 className="description">{data.blog.description}</h2>
         </div>
       </div>
     </div>
@@ -16,7 +19,7 @@ const BlogScreen = () => (
         <div className="links">
           <a href="/">HOME</a>
           <span className="devider" />
-          <a href="https://kentcdodds.com/links/">FIND KENT AROUND THE WEB</a>
+          <a href="https://kentcdodds.com/links/" target="_blank" rel="noopener noreferrer">FIND KENT AROUND THE WEB</a>
         </div>
         <div className="actions">
           <a className="search" href="#">search</a>
@@ -30,241 +33,11 @@ const BlogScreen = () => (
       </div>
     </div>
     <div className="posts">
-
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">May 21</span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">May 14</span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">Jun 1</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article className="post post--full-width">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/1000/1*mJEOJUxW51Vh-Y7cihnS0w.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">May 14</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">May 21</span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">May 14</span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">Jun 1</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">May 21</span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">May 14</span>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article className="post">
-        <a className="image" href="#">
-          <div className="overlay-border" />
-          <img src="https://cdn-images-1.medium.com/max/400/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg" />
-        </a>
-        <div className="text">
-          <a className="text-link" href="#">
-            <h3>Prop Drilling</h3>
-            <p className="preview">
-              What it is, why it’s good, why it’s bad, and how to avoid common problems with it
-            </p>
-          </a>
-          <div className="meta">
-            <a className="avatar avatar--small avatar--circled" href="#">
-              <img src="https://cdn-images-1.medium.com/fit/c/36/36/1*9ZtET_L1852yXaDZJUo9CQ.png" />
-            </a>
-            <div className="sub-meta">
-              <a href="#" className="author">Kent C. Dodds</a>
-              <span className="date">Jun 1</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
+      {
+        data.posts.map((post) => (
+          <PostPreview post={post} author={data.user} key={post.id} />
+        ))
+      }
     </div>
     <div className="footing">
       <div className="inner">
