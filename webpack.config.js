@@ -7,7 +7,7 @@ module.exports = {
   mode: 'development',
   entry: './src/client/app/index.jsx',
   output: {
-    filename: 'bundle.[hash].js',
+    filename: 'js/bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -53,6 +53,6 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
-    port: 3000,
+    port: 4000,
   },
 };
