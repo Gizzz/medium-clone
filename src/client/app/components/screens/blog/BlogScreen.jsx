@@ -1,9 +1,9 @@
 import React from 'react';
 
-import BlogHeader from './BlogHeader';
-import PreContent from './PreContent';
-import PostPreview from './PostPreview';
-import Footing from './Footing';
+import BlogHeader from './components/BlogHeader';
+import PreContent from './components/PreContent';
+import PostPreview from './components/PostPreview';
+import Footing from './components/Footing';
 
 import data from './data';
 
