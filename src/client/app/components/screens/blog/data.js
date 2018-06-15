@@ -16,6 +16,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg',
       date: 'May 21',
+      readTimeEstimate: '6 min',
     },
     {
       id: 2,
@@ -28,6 +29,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*ufuznjwWN4gP4S-jp2MOww.png',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*ufuznjwWN4gP4S-jp2MOww.png',
       date: 'Jun 1',
+      readTimeEstimate: '6 min',
     },
     {
       id: 3,
@@ -40,6 +42,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*iehP0UAWCqSzQ0CxhQcNrA.jpeg',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*iehP0UAWCqSzQ0CxhQcNrA.jpeg',
       date: 'May 18',
+      readTimeEstimate: '6 min',
     },
 
     {
@@ -53,6 +56,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*-rTkIBSzA1xVqPeuttf4kw.jpeg',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*-rTkIBSzA1xVqPeuttf4kw.jpeg',
       date: 'Jun 11',
+      readTimeEstimate: '6 min',
     },
 
     {
@@ -66,6 +70,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg',
       date: 'May 21',
+      readTimeEstimate: '6 min',
     },
     {
       id: 6,
@@ -78,6 +83,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*ufuznjwWN4gP4S-jp2MOww.png',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*ufuznjwWN4gP4S-jp2MOww.png',
       date: 'Jun 1',
+      readTimeEstimate: '6 min',
     },
     {
       id: 7,
@@ -90,6 +96,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*iehP0UAWCqSzQ0CxhQcNrA.jpeg',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*iehP0UAWCqSzQ0CxhQcNrA.jpeg',
       date: 'May 18',
+      readTimeEstimate: '6 min',
     },
 
     {
@@ -103,6 +110,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*bWg9ZF6pzx0vddYqAnf5FA.jpeg',
       date: 'May 21',
+      readTimeEstimate: '6 min',
     },
     {
       id: 9,
@@ -115,6 +123,7 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*ufuznjwWN4gP4S-jp2MOww.png',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*ufuznjwWN4gP4S-jp2MOww.png',
       date: 'Jun 1',
+      readTimeEstimate: '6 min',
     },
     {
       id: 10,
@@ -127,12 +136,14 @@ const data = {
       previewImgUrl: 'https://cdn-images-1.medium.com/max/1000/1*iehP0UAWCqSzQ0CxhQcNrA.jpeg',
       fullsizeImgUrl: 'https://cdn-images-1.medium.com/max/2000/1*iehP0UAWCqSzQ0CxhQcNrA.jpeg',
       date: 'May 18',
+      readTimeEstimate: '6 min',
     },
   ],
   user: {
     id: 1,
     fullName: 'Kent C. Dodds',
     avatarUrl: 'https://cdn-images-1.medium.com/fit/c/120/120/1*9ZtET_L1852yXaDZJUo9CQ.png',
+    bio: 'Making software development more accessible · Husband, Father, Mormon, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters @JavaScriptAir · #JS',
   },
 };
 

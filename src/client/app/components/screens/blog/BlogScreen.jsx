@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BlogHeader from './components/BlogHeader';
-import PreContent from './components/PreContent';
+import PreContent from '../../shared/PreContent';
 import PostPreview from './components/PostPreview';
 import Footing from './components/Footing';
 
