@@ -68,6 +68,9 @@ module.exports = (env) => {
       contentBase: path.resolve(__dirname, 'dist'),
       port: 4000,
       historyApiFallback: true,
+      proxy: {
+        '/api': 'http://localhost:3000',
+      },
     },
   };
 };
