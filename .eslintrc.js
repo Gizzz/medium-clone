@@ -7,6 +7,7 @@ module.exports = {
   "extends": "airbnb",
   "rules": {
     "arrow-parens": "off",
+    "camelcase": "off",
     "no-console": "off",
 
     "react/forbid-prop-types": "off",
