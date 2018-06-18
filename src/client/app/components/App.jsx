@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Header from './shared/Header';
-import BlogScreen from './screens/blog/BlogScreen';
-import PostViewScreen from './screens/post-view/PostViewScreen';
+import Header from './components/shared/Header';
+import BlogScreen from './components/screens/blog/BlogScreen';
+import PostViewScreen from './components/screens/post-view/PostViewScreen';
+
+import './assets/styles/index.scss';
 
 const App = () => (
   <Router>
