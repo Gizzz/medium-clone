@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const PostPreview = ({ post, author }) => (
   <article className={post.isLargePreview ? 'post post--full-width' : 'post'}>
-    <Link className="image" to="/blogs/1/posts/1">
+    <Link className="image" to={`/blogs/${post.blogId}/posts/${post.id}`}>
       <div className="overlay-border" />
       <img src={post.previewImgUrl} />
     </Link>
     <div className="text">
-      <Link className="text-link" to="/blogs/1/posts/1">
+      <Link className="text-link" to={`/blogs/${post.blogId}/posts/${post.id}`}>
         <h3>{post.title}</h3>
         <p>{post.subTitle}</p>
       </Link>
