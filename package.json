@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "json-server": "^0.14.0",
+    "medium-editor": "^5.23.3",
     "prop-types": "^15.6.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
