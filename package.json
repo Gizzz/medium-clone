@@ -12,11 +12,11 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "nodemon src/server/index.js",
     "build": "npm run build-prod",
     "build-dev": "webpack --env.MODE=dev --config webpack.config.js --progress",
     "build-prod": "webpack --env.MODE=prod --config webpack.config.js --progress",
-    "dev": "webpack-dev-server --env.MODE=dev --config webpack.config.js --progress",
+    "dev-server": "nodemon src/server/index.js",
+    "dev-client": "webpack-dev-server --env.MODE=dev --config webpack.config.js --progress",
     "lint": "eslint --ext .js --ext .jsx src/ ",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
     "test": "echo \"Error: no test specified\" && exit 1",
