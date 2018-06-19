@@ -42,6 +42,16 @@ module.exports = (env) => {
           ],
         },
         {
+          test: /\.css$/,
+          use: [
+            isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true },
+            },
+          ],
+        },
+        {
           test: /\.woff$/,
           loader: 'file-loader',
           options: { name: 'fonts/[name].[ext]' },
