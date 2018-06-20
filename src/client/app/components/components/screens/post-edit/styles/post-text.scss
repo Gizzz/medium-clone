@@ -1,6 +1,6 @@
 .post-text {
-  @include make-center(700);
-  
+  @include make-center($width: 700px);
+
   padding-bottom: 40px;
   font-family: 'medium-content-serif-font', serif;
   font-size: 18px;

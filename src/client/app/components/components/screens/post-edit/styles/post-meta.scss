@@ -1,5 +1,5 @@
 .post-meta {
-  @include make-center(700);
+  @include make-center($width: 700px);
 
   .user-info {
     display: flex;
