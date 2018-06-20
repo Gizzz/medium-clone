@@ -4,8 +4,8 @@
   .user-info {
     display: flex;
     align-items: center;
-    padding-top: 35px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     .author {
       padding-left: 15px;
@@ -14,41 +14,68 @@
     }
   }
 
+  .post-actions {
+    border-top: 1px solid $color-devider-light_gray;
+    border-bottom: 1px solid $color-devider-light_gray;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  
+    .btn {
+      margin-right: 11px;
+    }
+  
+    .cancel {
+      font-size: 16px;
+      color: $color-font-secondary;
+    }
+  }
+
   .input-fields {
-    .title,
-    .subtitle,
-    .big-img-url {
+    padding-top: 30px;
+
+    input {
+      margin-top: 10px;
       border: none;
       width: 100%;
-    }
-
-    .title {
-      margin-top: 31px;
-      margin-left: -2.13px;
-      padding-top: 5px;
-      font-weight: 600;
-      font-size: 34px;
-      line-height: 1.04;
-      letter-spacing: -.015em;
-    }
-
-    .subtitle,
-    .big-img-url {
-      margin-top: 10px;
       font-family: 'medium-content-serif-font', serif;
       font-size: 18px;
       line-height: 1.58;
       letter-spacing: -.004em;
     }
 
+    .title {
+      margin-top: 31px;
+      margin-left: -2.13px;
+      padding-top: 5px;
+      font-family: 'medium-content-sans-serif-font', sans-serif;
+      font-weight: 600;
+      font-size: 34px;
+      line-height: 1.04;
+      letter-spacing: -.015em;
+    }
+
     .subtitle {
       font-style: italic;
+    }
+
+    .img-url {
+      color: $color-font-secondary;
     }
   }
 }
 
 @media (min-width: 768px) {
   .post-meta {
+    .user-info {
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+
+    .post-actions {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
     .input-fields {
       .title {
         margin-top: 39px;
