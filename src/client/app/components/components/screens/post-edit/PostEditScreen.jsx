@@ -65,7 +65,7 @@ class PostEditScreen extends React.Component {
         subTitle: this.state.subTitle,
         previewImgUrl: this.state.previewImgUrl,
         fullsizeImgUrl: this.state.fullsizeImgUrl,
-        contentMarkup: { __html: document.querySelector('.js-editable').innerHTML },
+        contentMarkup: document.querySelector('.js-editable').innerHTML,
       }),
     });
   }
@@ -105,7 +105,7 @@ class PostEditScreen extends React.Component {
             </div>
           </div>
         </div>
-        <div className="post-text js-editable" dangerouslySetInnerHTML={post.contentMarkup} />
+        <div className="post-text js-editable" dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
       </main>
     );
   }
