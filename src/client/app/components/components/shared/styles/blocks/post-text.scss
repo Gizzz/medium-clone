@@ -59,12 +59,13 @@
     text-decoration: underline;
   }
 
-  code {
+  strike {
     margin: 0 2px;
     padding: 3px 4px;
     background-color: $color-bg-code;
     font-family: Menlo,Monaco,"Courier New",Courier,monospace;
     font-size: 14px;
+    text-decoration-color: transparent;
   }
 
   pre {
@@ -75,13 +76,6 @@
     font-size: 14px;
     line-height: 1.4;
     white-space: pre-wrap;
-
-    code {
-      margin: 0;
-      padding: 0;
-      background-color: transparent;
-      font-family: inherit;
-    }
   }
 
   ul {
@@ -133,7 +127,7 @@
       margin-top: 29px;
     }
 
-    code {
+    strike {
       font-size: 16px;
     }
 
