@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import MediumEditor from 'medium-editor';
 
-import 'medium-editor/dist/css/medium-editor.css';
-import 'medium-editor/dist/css/themes/default.css';
-
 class PostEditScreen extends React.Component {
   state = {
     isDataLoaded: false,
