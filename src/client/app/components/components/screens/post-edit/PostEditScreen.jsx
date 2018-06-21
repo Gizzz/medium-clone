@@ -67,7 +67,8 @@ class PostEditScreen extends React.Component {
         fullsizeImgUrl: this.state.fullsizeImgUrl,
         contentMarkup: document.querySelector('.js-editable').innerHTML,
       }),
-    });
+    })
+      .then(() => { this.props.onSave(); });
   }
 
   render() {
@@ -117,6 +118,7 @@ PostEditScreen.defaultProps = {
 
 PostEditScreen.propTypes = {
   data: PropTypes.object,
+  onSave: PropTypes.func.isRequired,
 };
 
 export default PostEditScreen;

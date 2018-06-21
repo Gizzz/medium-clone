@@ -24,13 +24,19 @@ class PostEditScreen_Container extends React.Component {
       });
   }
 
+  handleSave = () => {
+    const { post } = this.state.data;
+    this.props.history.push(`/blogs/${post.blogId}/posts/${post.id}`);
+  }
+
   render() {
-    return (<PostEditScreen data={this.state.data} />);
+    return (<PostEditScreen data={this.state.data} onSave={this.handleSave} />);
   }
 }
 
 PostEditScreen_Container.propTypes = {
   match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default PostEditScreen_Container;
