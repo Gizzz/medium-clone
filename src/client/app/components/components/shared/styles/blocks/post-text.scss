@@ -78,18 +78,27 @@
     white-space: pre-wrap;
   }
 
-  ul {
+  ul,
+  ol {
     margin-top: 21px;
     list-style-type: disc;
 
     li {
-      margin-left: 30px;
+      margin-left: 35px;
       margin-bottom: 14px;
 
       &:last-child {
         margin-bottom: 0;
       }
     }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
   }
 
   blockquote {
@@ -136,7 +145,8 @@
       font-size: 16px;
     }
 
-    ul {
+    ul,
+    ol {
       margin-top: 29px;
     }
 

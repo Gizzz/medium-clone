@@ -21,7 +21,16 @@ class PostEditScreen extends React.Component {
       targetBlank: true,
       toolbar: {
         buttons: [
-          'bold', 'italic', 'underline', 'anchor', 'h3', 'h4', 'quote',
+          'bold', 'italic', 'underline', 'anchor', 'h3', 'h4',
+          {
+            name: 'unorderedlist',
+            contentDefault: '<b>UL</b>',
+          },
+          {
+            name: 'orderedlist',
+            contentDefault: '<b>OL</b>',
+          },
+          'quote',
           {
             name: 'pre',
             action: 'append-pre',
