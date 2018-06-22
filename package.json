@@ -12,6 +12,9 @@
     "npm": "5.6.0"
   },
   "scripts": {
+    "start": "node src/server/index.js",
+    "heroku-postbuild": "npm run build-prod",
+    "publish": "git push heroku master",
     "build": "npm run build-prod",
     "build-dev": "webpack --env.MODE=dev --config webpack.config.js --progress",
     "build-prod": "webpack --env.MODE=prod --config webpack.config.js --progress",
