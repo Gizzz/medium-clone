@@ -56,6 +56,12 @@ module.exports = (env) => {
           loader: 'file-loader',
           options: { name: 'fonts/[name].[ext]' },
         },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: [
+            'file-loader',
+          ],
+        },
       ],
     },
     resolve: {

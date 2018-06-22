@@ -21,9 +21,12 @@ header.page {
 
       .logo {
         display: block;
+        padding: 5px;
         width: 45px;
         height: 45px;
-        fill: $color-font-primary;
+        background: url(../img/logo.png) no-repeat 50% 50%;
+        background-size: 35px 35px;
+        opacity: .84;
       }
 
       .devider {
