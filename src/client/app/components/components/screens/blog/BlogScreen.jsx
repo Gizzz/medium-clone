@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Spinner from '../../shared/Spinner';
 import BlogHeader from './components/BlogHeader';
 import PreContent from '../../shared/PreContent';
 import PostPreview from './components/PostPreview';
@@ -8,7 +9,7 @@ import Footing from './components/Footing';
 
 const BlogScreen = ({ data }) => {
   if (!data) {
-    return (<p>Loading...</p>);
+    return (<Spinner />);
   }
 
   const { blog, author, posts } = data;

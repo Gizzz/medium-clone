@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import MediumEditor from 'medium-editor';
 
+import Spinner from '../../shared/Spinner';
+
 class PostEditScreen extends React.Component {
   state = {
     isDataLoaded: false,
@@ -93,7 +95,7 @@ class PostEditScreen extends React.Component {
 
   render() {
     if (!this.props.data) {
-      return (<p>Loading...</p>);
+      return (<Spinner />);
     }
 
     const { post, author } = this.props.data;

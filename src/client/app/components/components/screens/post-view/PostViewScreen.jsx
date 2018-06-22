@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Spinner from '../../shared/Spinner';
 import PreContent from '../../shared/PreContent';
 import PostHeader from './components/PostHeader';
 import PostImage from './components/PostImage';
@@ -8,7 +9,7 @@ import PostText from './components/PostText';
 
 const PostViewScreen = ({ data }) => {
   if (!data) {
-    return (<p>Loading...</p>);
+    return (<Spinner />);
   }
 
   const { post, author } = data;
