@@ -15,8 +15,6 @@
   }
 
   .input-fields {
-    padding-top: 30px;
-
     input[type=text] {
       margin-top: 10px;
       border: none;
@@ -44,6 +42,10 @@
       &.img-url {
         color: $color-font-secondary;
       }
+    }
+
+    div:first-child input[type=text] {
+      margin-top: 0;
     }
 
     .is-large-preview {
@@ -78,7 +80,6 @@
           letter-spacing: -.003em;
         }
       }
-      
     }
   }
 }
