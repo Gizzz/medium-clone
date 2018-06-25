@@ -13,6 +13,7 @@ class PostEditScreen extends React.Component {
     subTitle: '',
     previewImgUrl: '',
     fullsizeImgUrl: '',
+    isLargePreview: false,
   }
 
   componentDidUpdate() {
@@ -62,6 +63,7 @@ class PostEditScreen extends React.Component {
       subTitle: post.subTitle,
       previewImgUrl: post.previewImgUrl,
       fullsizeImgUrl: post.fullsizeImgUrl,
+      isLargePreview: post.isLargePreview,
     });
   }
 
@@ -72,6 +74,12 @@ class PostEditScreen extends React.Component {
   handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  }
+
+  handleCheckboxChange = (e) => {
+    this.setState({
+      isLargePreview: e.target.checked,
     });
   }
 
@@ -88,6 +96,7 @@ class PostEditScreen extends React.Component {
         subTitle: this.state.subTitle,
         previewImgUrl: this.state.previewImgUrl,
         fullsizeImgUrl: this.state.fullsizeImgUrl,
+        isLargePreview: this.state.isLargePreview,
         contentMarkup: document.querySelector('.js-editable').innerHTML,
       }),
     })
@@ -105,6 +114,7 @@ class PostEditScreen extends React.Component {
       subTitle: this.state.subTitle,
       previewImgUrl: this.state.previewImgUrl,
       fullsizeImgUrl: this.state.fullsizeImgUrl,
+      isLargePreview: this.state.isLargePreview,
     };
 
     return (
@@ -119,6 +129,7 @@ class PostEditScreen extends React.Component {
           <InputFields
             inputData={inputData}
             onInputChange={this.handleInputChange}
+            onCheckboxChange={this.handleCheckboxChange}
           />
         </div>
         <div className="post-text js-editable" dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
@@ -145,4 +156,3 @@ export default PostEditScreen;
 /* eslint max-len: off */
 /* eslint react/no-danger: off */
 /* eslint react/no-did-update-set-state: off */
-/* eslint jsx-a11y/label-has-for: off */
