@@ -3,6 +3,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = (env) => {
   if (!env || !env.MODE) {
@@ -11,6 +13,21 @@ module.exports = (env) => {
 
   const isDevMode = env.MODE === 'dev';
   const webpackMode = env.MODE === 'dev' ? 'development' : 'production';
+
+  const optimization_dev = {
+    minimize: false,
+  };
+  const optimization_prod = {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  };
+  const optimization = isDevMode ? optimization_dev : optimization_prod;
 
   return {
     mode: webpackMode,
@@ -79,6 +96,7 @@ module.exports = (env) => {
         filename: 'css/[name].[contenthash].css',
       }),
     ],
+    optimization,
     devtool: 'source-map',
     devServer: {
       contentBase: path.resolve(__dirname, 'dist'),
