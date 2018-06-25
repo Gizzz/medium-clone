@@ -50,11 +50,15 @@
 
     .is-large-preview {
       margin-top: 11px;
-      color: $color-font-secondary;
+      
+      label {
+        color: $color-font-secondary;
+        user-select: none;
 
-      input[type=checkbox] {
-        margin-right: 11px;
-        vertical-align: middle;
+        input[type=checkbox] {
+          margin-right: 11px;
+          vertical-align: middle;
+        }
       }
     }
   }
