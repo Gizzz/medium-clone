@@ -7,6 +7,9 @@ class PostViewScreen_Container extends React.Component {
   state = { data: null }
 
   componentDidMount() {
+    // non-container logic; should be in HOC or presenter component
+    window.scrollTo(0, 0);
+
     const { postId } = this.props.match.params;
     const userId = 1;
 

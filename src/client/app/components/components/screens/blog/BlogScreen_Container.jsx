@@ -5,6 +5,9 @@ class BlogScreen_Container extends React.Component {
   state = { data: null }
 
   componentDidMount() {
+    // non-container logic; should be in HOC or presenter component
+    window.scrollTo(0, 0);
+
     const blogId = 1;
     const userId = 1;
 
