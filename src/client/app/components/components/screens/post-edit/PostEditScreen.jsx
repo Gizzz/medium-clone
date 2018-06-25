@@ -109,10 +109,6 @@ class PostEditScreen extends React.Component {
             </a>
             <a href="#" className="author">{author.fullName}</a>
           </div>
-          <div className="post-actions">
-            <button className="btn" onClick={this.handleSaveBtnClick}>Save</button>
-            <Link className="cancel" to={`/blogs/${post.blogId}/posts/${post.id}`}>Cancel</Link>
-          </div>
           <div className="input-fields">
             <div>
               <input className="img-url" name="previewImgUrl" placeholder="Preview image url" value={this.state.previewImgUrl} onChange={this.handleInputChange} />
@@ -129,6 +125,10 @@ class PostEditScreen extends React.Component {
           </div>
         </div>
         <div className="post-text js-editable" dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
+        <div className="post-actions">
+          <button className="btn" onClick={this.handleSaveBtnClick}>Save</button>
+          <Link className="cancel" to={`/blogs/${post.blogId}/posts/${post.id}`}>Cancel</Link>
+        </div>
       </main>
     );
   }

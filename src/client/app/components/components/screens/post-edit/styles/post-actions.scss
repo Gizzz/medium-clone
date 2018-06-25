@@ -1,0 +1,16 @@
+.post-actions {
+  @include make-center($width: 700px);
+  
+  border-top: 1px solid $color-devider-light_gray;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  .btn {
+    margin-right: 11px;
+  }
+
+  .cancel {
+    font-size: 16px;
+    color: $color-font-secondary;
+  }
+}
