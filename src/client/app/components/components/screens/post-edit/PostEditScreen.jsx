@@ -9,11 +9,13 @@ import InputFields from './components/InputFields';
 class PostEditScreen extends React.Component {
   state = {
     isDataLoaded: false,
-    title: '',
-    subTitle: '',
-    previewImgUrl: '',
-    fullsizeImgUrl: '',
-    isLargePreview: false,
+    formData: {
+      title: '',
+      subTitle: '',
+      previewImgUrl: '',
+      fullsizeImgUrl: '',
+      isLargePreview: false,
+    },
   }
 
   componentDidUpdate() {
@@ -59,11 +61,13 @@ class PostEditScreen extends React.Component {
 
     this.setState({
       isDataLoaded: true,
-      title: post.title,
-      subTitle: post.subTitle,
-      previewImgUrl: post.previewImgUrl,
-      fullsizeImgUrl: post.fullsizeImgUrl,
-      isLargePreview: post.isLargePreview,
+      formData: {
+        title: post.title,
+        subTitle: post.subTitle,
+        previewImgUrl: post.previewImgUrl,
+        fullsizeImgUrl: post.fullsizeImgUrl,
+        isLargePreview: post.isLargePreview,
+      },
     });
   }
 
@@ -73,13 +77,19 @@ class PostEditScreen extends React.Component {
 
   handleInputChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      formData: {
+        ...this.state.formData,
+        [e.target.name]: e.target.value,
+      },
     });
   }
 
   handleCheckboxChange = (e) => {
     this.setState({
-      isLargePreview: e.target.checked,
+      formData: {
+        ...this.state.formData,
+        isLargePreview: e.target.checked,
+      },
     });
   }
 
@@ -92,11 +102,7 @@ class PostEditScreen extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: this.state.title,
-        subTitle: this.state.subTitle,
-        previewImgUrl: this.state.previewImgUrl,
-        fullsizeImgUrl: this.state.fullsizeImgUrl,
-        isLargePreview: this.state.isLargePreview,
+        ...this.state.formData,
         contentMarkup: document.querySelector('.js-editable').innerHTML,
       }),
     })
@@ -109,13 +115,7 @@ class PostEditScreen extends React.Component {
     }
 
     const { post, author } = this.props.data;
-    const inputData = {
-      title: this.state.title,
-      subTitle: this.state.subTitle,
-      previewImgUrl: this.state.previewImgUrl,
-      fullsizeImgUrl: this.state.fullsizeImgUrl,
-      isLargePreview: this.state.isLargePreview,
-    };
+    const inputData = { ...this.state.formData };
 
     return (
       <main className="post-edit">
