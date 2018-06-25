@@ -1,6 +1,7 @@
 main.blog-post {
   @import 'article-header';
   @import 'article-content';
+  @import 'article-footer';
 
   .pre-content {
     .inner {

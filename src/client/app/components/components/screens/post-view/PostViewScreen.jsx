@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Spinner from '../../shared/Spinner';
 import PreContent from '../../shared/PreContent';
@@ -23,7 +24,11 @@ const PostViewScreen = ({ data }) => {
           <PostImage post={post} />
           <PostText post={post} />
         </section>
-        <footer />
+        <footer>
+          <Link className="btn" to={`/blogs/${post.blogId}/posts/${post.id}/edit`}>
+            Edit
+          </Link>
+        </footer>
       </article>
     </main>
   );
