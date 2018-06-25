@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import MediumEditor from 'medium-editor';
 
 import Spinner from '../../shared/Spinner';
+import InputFields from './components/InputFields';
 
 class PostEditScreen extends React.Component {
   state = {
@@ -99,6 +100,12 @@ class PostEditScreen extends React.Component {
     }
 
     const { post, author } = this.props.data;
+    const inputData = {
+      title: this.state.title,
+      subTitle: this.state.subTitle,
+      previewImgUrl: this.state.previewImgUrl,
+      fullsizeImgUrl: this.state.fullsizeImgUrl,
+    };
 
     return (
       <main className="post-edit">
@@ -109,20 +116,10 @@ class PostEditScreen extends React.Component {
             </a>
             <a href="#" className="author">{author.fullName}</a>
           </div>
-          <div className="input-fields">
-            <div>
-              <input className="img-url" name="previewImgUrl" placeholder="Preview image url" value={this.state.previewImgUrl} onChange={this.handleInputChange} />
-            </div>
-            <div>
-              <input className="img-url" name="fullsizeImgUrl" placeholder="Fullsize image url" value={this.state.fullsizeImgUrl} onChange={this.handleInputChange} />
-            </div>
-            <div>
-              <input className="title" name="title" placeholder="Title" value={this.state.title} onChange={this.handleInputChange} />
-            </div>
-            <div>
-              <input className="subtitle" name="subTitle" placeholder="Subtitle" value={this.state.subTitle} onChange={this.handleInputChange} />
-            </div>
-          </div>
+          <InputFields
+            inputData={inputData}
+            onInputChange={this.handleInputChange}
+          />
         </div>
         <div className="post-text js-editable" dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
         <div className="post-actions">
