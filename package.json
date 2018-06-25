@@ -21,6 +21,7 @@
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
     "dev-server": "nodemon src/server/index.js",
     "dev-client": "webpack-dev-server --env.MODE=dev --config webpack.config.js --progress",
+    "prod": "npm run build-prod && npm run start",
     "lint": "eslint --ext .js --ext .jsx src/ ",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
     "test": "echo \"Error: no test specified\" && exit 1",
