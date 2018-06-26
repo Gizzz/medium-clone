@@ -12,8 +12,7 @@ class PostEditScreen extends React.Component {
     formData: {
       title: '',
       subTitle: '',
-      previewImgUrl: '',
-      fullsizeImgUrl: '',
+      imgDescriptor: '',
       isLargePreview: false,
     },
   }
@@ -64,8 +63,7 @@ class PostEditScreen extends React.Component {
       formData: {
         title: post.title,
         subTitle: post.subTitle,
-        previewImgUrl: post.previewImgUrl,
-        fullsizeImgUrl: post.fullsizeImgUrl,
+        imgDescriptor: post.imgDescriptor,
         isLargePreview: post.isLargePreview,
       },
     });

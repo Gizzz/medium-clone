@@ -2,15 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const InputFields = ({ inputData, onInputChange, onCheckboxChange }) => {
-  const { title, subTitle, previewImgUrl, fullsizeImgUrl, isLargePreview } = inputData;
+  const { title, subTitle, imgDescriptor, isLargePreview } = inputData;
 
   return (
     <div className="input-fields">
       <div>
-        <input type="text" className="img-url" name="previewImgUrl" placeholder="Preview image url" value={previewImgUrl} onChange={onInputChange} />
-      </div>
-      <div>
-        <input type="text" className="img-url" name="fullsizeImgUrl" placeholder="Fullsize image url" value={fullsizeImgUrl} onChange={onInputChange} />
+        <input type="text" className="img-url" name="imgDescriptor" placeholder="Image descriptor for url" value={imgDescriptor} onChange={onInputChange} />
       </div>
       <div className="is-large-preview">
         <label>
