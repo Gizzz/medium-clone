@@ -6,7 +6,12 @@ const PostPreview = ({ post, author }) => (
   <article className={post.isLargePreview ? 'post post--full-width' : 'post'}>
     <Link className="image" to={`/blogs/${post.blogId}/posts/${post.id}`}>
       <div className="overlay-border" />
-      <img src={post.previewImgUrl} />
+      <img
+        srcSet={`https://cdn-images-1.medium.com/max/400/${post.imgDescriptor} 400w,
+                 https://cdn-images-1.medium.com/max/600/${post.imgDescriptor} 600w,
+                 https://cdn-images-1.medium.com/max/800/${post.imgDescriptor} 800w,`}
+        src={`https://cdn-images-1.medium.com/max/800/${post.imgDescriptor}`}
+      />
     </Link>
     <div className="text">
       <Link className="text-link" to={`/blogs/${post.blogId}/posts/${post.id}`}>
