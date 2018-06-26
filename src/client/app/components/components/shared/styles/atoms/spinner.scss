@@ -5,9 +5,10 @@
 .spinner {
   // sets both width & height, accepts any units
   $spinner-width: 70px;
-  $spinner-color: lighten($color-link-text, 5%) ;
+  $spinner-color: lighten($color-link-text, 5%);
 
-  margin: 30px auto;
+  margin: 0 auto;
+  padding: 30px 0;
   width: 100%;
 
   .loader {
