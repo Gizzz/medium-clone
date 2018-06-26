@@ -6,12 +6,21 @@ const PostPreview = ({ post, author }) => (
   <article className={post.isLargePreview ? 'post post--full-width' : 'post'}>
     <Link className="image" to={`/blogs/${post.blogId}/posts/${post.id}`}>
       <div className="overlay-border" />
-      <img
-        srcSet={`https://cdn-images-1.medium.com/max/400/${post.imgDescriptor} 400w,
-                 https://cdn-images-1.medium.com/max/600/${post.imgDescriptor} 600w,
-                 https://cdn-images-1.medium.com/max/800/${post.imgDescriptor} 800w,`}
-        src={`https://cdn-images-1.medium.com/max/800/${post.imgDescriptor}`}
-      />
+      <picture>
+        <source
+          srcSet={`https://cdn-images-1.medium.com/max/400/${post.imgDescriptor} 1x, https://cdn-images-1.medium.com/max/800/${post.imgDescriptor} 2x`}
+          media="(max-width: 400px)"
+        />
+        <source
+          srcSet={`https://cdn-images-1.medium.com/max/600/${post.imgDescriptor} 1x, https://cdn-images-1.medium.com/max/1200/${post.imgDescriptor} 2x`}
+          media="(min-width: 401px) and (max-width: 600px)"
+        />
+        <source
+          srcSet={`https://cdn-images-1.medium.com/max/800/${post.imgDescriptor} 1x, https://cdn-images-1.medium.com/max/1600/${post.imgDescriptor} 2x`}
+          media="(min-width: 601px)"
+        />
+        <img src={`https://cdn-images-1.medium.com/max/800/${post.imgDescriptor}`} />
+      </picture>
     </Link>
     <div className="text">
       <Link className="text-link" to={`/blogs/${post.blogId}/posts/${post.id}`}>
