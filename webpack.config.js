@@ -53,17 +53,11 @@ module.exports = (env) => {
               options: { sourceMap: true },
             },
             {
-              loader: 'sass-loader',
+              loader: 'postcss-loader',
               options: { sourceMap: true },
             },
-          ],
-        },
-        {
-          test: /\.css$/,
-          use: [
-            isDevMode ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
-              loader: 'css-loader',
+              loader: 'sass-loader',
               options: { sourceMap: true },
             },
           ],
