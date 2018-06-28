@@ -6,7 +6,7 @@ The project is currently in MVP stage (early prototype). More features are plann
 
 ## Motivation
 
-This project is a tribute to the [medium.com](https://medium.com/), the great place to read and write articles. The idea was to create my own Medium(with blackjack and stuff) from scratch and learn what is needed to create one. It is inspired by the [realworld](https://github.com/gothinkster/realworld) project, which actually does the same. I wanted to be closer to the original, so I started my own. It can be seen as lowcost-cosplay of Medium ;-)
+This project is a tribute to the [medium.com](https://medium.com/), the great place to read and write articles. The idea was to create my own Medium(with blackjack and stuff) from scratch and learn what is needed to create one. It is inspired by the [realworld](https://github.com/gothinkster/realworld) project, which actually does the same. I wanted to be closer to the original, so I started my own. It can be seen as lowcost-cosplay version of Medium ;-)
 
 ## Features
 
