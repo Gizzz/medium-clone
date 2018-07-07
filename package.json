@@ -12,9 +12,6 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "node src/server/index.js",
-    "heroku-postbuild": "npm run build-prod",
-    "publish": "git push heroku master",
     "build": "npm run build-prod",
     "build-dev": "webpack --env.MODE=dev --config webpack.config.js --progress",
     "build-prod": "webpack --env.MODE=prod --config webpack.config.js --progress",
@@ -25,9 +22,14 @@
     "lint": "eslint --ext .js --ext .jsx src/ ",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server/index.js",
+    "loc": "npx cloc src/ --exclude-dir=vendor",
+    "\n# DEPLOY SCRIPTS:": "",
+    "publish": "git push heroku master",
+    "heroku-postbuild": "npm run build-prod",
+    "\n# MARKUP SCRIPTS:": "",
     "sass": "node-sass markup-static/styles/index.scss markup-static/styles/index.css -w -r --source-map=markup-static/styles/index.css.map",
-    "loc-markup": "npx cloc markup-static/ --exclude-lang=CSS --exclude-dir=vendor",
-    "loc": "npx cloc src/ --exclude-dir=vendor"
+    "loc-markup": "npx cloc markup-static/ --exclude-lang=CSS --exclude-dir=vendor"
   },
   "pre-commit": [
     "lint"
