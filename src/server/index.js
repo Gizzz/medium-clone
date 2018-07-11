@@ -1,20 +1,59 @@
-const jsonServer = require('json-server');
+// const jsonServer = require('json-server');
+const express = require('express');
 const path = require('path');
+const lowdb = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
 
-const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, 'data/db.json'));
-const middlewares = jsonServer.defaults({
-  static: path.resolve(__dirname, '../../dist'),
+const adapter = new FileSync(path.resolve(__dirname, 'data/db.json'));
+const db = lowdb(adapter);
+
+const app = express();
+// const router = jsonServer.router(path.join(__dirname, 'data/db.json'));
+// const middlewares = jsonServer.defaults({
+//   static: path.resolve(__dirname, '../../dist'),
+// });
+
+// app.use(middlewares);
+// app.use('/api', router);
+
+// middlewares
+
+app.use(
+  express.static(
+    path.resolve(__dirname, '../../dist'),
+  ),
+);
+
+// routes
+
+app.get('/api/posts', (req, res) => {
+  const posts = db.get('posts').value();
+  res.json(posts);
 });
 
-server.use(middlewares);
-server.use('/api', router);
+app.get('/api/blogs/:id', (req, res) => {
+  const blog = db
+    .get('blogs')
+    .find({ id: Number(req.params.id) })
+    .value();
+  res.json(blog);
+});
 
-server.get('/*', (req, res) => {
+app.get('/api/users/:id', (req, res) => {
+  const user = db
+    .get('users')
+    .find({ id: Number(req.params.id) })
+    .value();
+  res.json(user);
+});
+
+app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
 });
 
 const port = process.env.PORT || 3000;
-server.listen(port, () => {
-  console.log(`JSON Server is running on port ${port}`);
+app.listen(port, () => {
+  console.log(`Medium-clone server is running on port ${port}`);
 });
+
+/* eslint function-paren-newline: off */
