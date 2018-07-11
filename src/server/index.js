@@ -1,20 +1,35 @@
-const jsonServer = require('json-server');
 const path = require('path');
+const express = require('express');
+const compression = require('compression');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+//
+const api = require('./routes/api');
 
-const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, 'data/db.json'));
-const middlewares = jsonServer.defaults({
-  static: path.resolve(__dirname, '../../dist'),
-});
+const app = express();
 
-server.use(middlewares);
-server.use('/api', router);
+// middlewares
 
-server.get('/*', (req, res) => {
+app.use(cors());
+app.use(compression());
+app.use(bodyParser.json());
+
+app.use(express.static(
+  path.resolve(__dirname, '../../dist'),
+));
+
+// routes
+
+app.use('/api', api);
+
+app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
 });
 
+
 const port = process.env.PORT || 3000;
-server.listen(port, () => {
-  console.log(`JSON Server is running on port ${port}`);
+app.listen(port, () => {
+  console.log(`Medium-clone server is running on port ${port}`);
 });
+
+/* eslint function-paren-newline: off */
