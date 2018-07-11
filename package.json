@@ -24,10 +24,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server/index.js",
     "loc": "npx cloc src/ --exclude-dir=vendor",
-    "\n# DEPLOY SCRIPTS:": "",
+    "\n# ===================== DEPLOY SCRIPTS: ========================": "",
     "publish": "git push heroku master",
     "heroku-postbuild": "npm run build-prod",
-    "\n# MARKUP SCRIPTS:": "",
+    "\n# ===================== MARKUP SCRIPTS: ========================": "",
     "sass": "node-sass markup-static/styles/index.scss markup-static/styles/index.css -w -r --source-map=markup-static/styles/index.css.map",
     "loc-markup": "npx cloc markup-static/ --exclude-lang=CSS --exclude-dir=vendor"
   },
