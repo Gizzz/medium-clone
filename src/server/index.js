@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
@@ -15,14 +16,13 @@ const app = express();
 
 // middlewares
 
+app.use(cors());
 app.use(compression());
 app.use(bodyParser.json());
 
-app.use(
-  express.static(
-    path.resolve(__dirname, '../../dist'),
-  ),
-);
+app.use(express.static(
+  path.resolve(__dirname, '../../dist'),
+));
 
 // routes
 
