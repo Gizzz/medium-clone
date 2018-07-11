@@ -1,22 +1,23 @@
 // const jsonServer = require('json-server');
-const express = require('express');
 const path = require('path');
+
+const express = require('express');
+const compression = require('compression');
+const bodyParser = require('body-parser');
+
 const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
+
 
 const adapter = new FileSync(path.resolve(__dirname, 'data/db.json'));
 const db = lowdb(adapter);
 
 const app = express();
-// const router = jsonServer.router(path.join(__dirname, 'data/db.json'));
-// const middlewares = jsonServer.defaults({
-//   static: path.resolve(__dirname, '../../dist'),
-// });
-
-// app.use(middlewares);
-// app.use('/api', router);
 
 // middlewares
+
+app.use(compression());
+app.use(bodyParser.json());
 
 app.use(
   express.static(
@@ -50,6 +51,7 @@ app.get('/api/users/:id', (req, res) => {
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
 });
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
