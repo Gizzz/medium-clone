@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //
 const api = require('./routes/api');
+const auth = require('./routes/auth');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(express.static(
 // routes
 
 app.use('/api', api);
+app.use('/api/auth', auth);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
