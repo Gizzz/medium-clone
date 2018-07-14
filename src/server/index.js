@@ -20,7 +20,7 @@ app.use(express.static(
 
 // routes
 
-app.use('/', routes);
+app.use('/api', routes);
 
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));

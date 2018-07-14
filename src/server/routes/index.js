@@ -6,8 +6,8 @@ const otherRoutesRouter = require('./otherRoutes');
 
 const router = express.Router();
 
-router.use('/api/auth', authRouter);
-router.use('/api/posts', postsRouter);
-router.use('/api', otherRoutesRouter);
+router.use('/auth', authRouter);
+router.use('/posts', postsRouter);
+router.use('/', otherRoutesRouter);
 
 module.exports = router;
