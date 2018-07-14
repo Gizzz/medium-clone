@@ -1,8 +1,12 @@
 const path = require('path');
+//
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const expressJwt = require('express-jwt');
+//
 const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
+
 
 const adapter = new FileSync(path.resolve(__dirname, '../data/db.json'));
 const db = lowdb(adapter);
@@ -49,6 +53,7 @@ router.get('/users/:id', (req, res) => {
     .get('users')
     .find({ id: Number(req.params.id) })
     .value();
+
   res.json(user);
 });
 
@@ -73,7 +78,7 @@ router.post('/auth/login', (req, res) => {
   }
 
   const token = jwt.sign({
-    userId: user.id,
+    id: user.id,
   }, 'secret', { expiresIn: '30d' });
 
   res.json({ token });
@@ -93,6 +98,15 @@ router.get('/auth/check', (req, res) => {
     console.log(e);
     res.status(400).send('Token verification failed.');
   }
+});
+
+router.get('/auth/check-with-middleware', expressJwt({ secret: 'secret', credentialsRequired: false }), (req, res) => {
+  if (!req.user || !req.user.id) {
+    res.status(400).send('Token is not provided.');
+    return;
+  }
+
+  res.send('Auth check succeeded.');
 });
 
 module.exports = router;
