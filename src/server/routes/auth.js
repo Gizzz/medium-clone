@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 //
-const db = require('../data/db.js');
+const db = require('../db');
 
 const router = express.Router();
 
