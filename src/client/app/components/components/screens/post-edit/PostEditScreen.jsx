@@ -122,7 +122,7 @@ class PostEditScreen extends React.Component {
             <a className="avatar avatar--middle avatar--circled" href="#">
               <img src={author.avatarUrl} />
             </a>
-            <a href="#" className="author">{author.fullName}</a>
+            <a href="#" className="author">{author.username}</a>
           </div>
           <InputFields
             inputData={inputData}

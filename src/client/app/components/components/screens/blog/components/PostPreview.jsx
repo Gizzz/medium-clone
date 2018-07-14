@@ -33,7 +33,7 @@ const PostPreview = ({ post, author }) => (
         </a>
         <div className="sub-meta">
           <a className="author" href="https://blog.kentcdodds.com/@kentcdodds" target="_blank" rel="noopener noreferrer">
-            {author.fullName}
+            {author.username}
           </a>
           <span className="date">{post.date}</span>
         </div>

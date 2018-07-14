@@ -15,7 +15,7 @@ router.post('/login', (req, res) => {
   const user = db
     .get('users')
     .find({
-      fullName: req.body.username,
+      username: req.body.username,
       password: req.body.password,
     })
     .value();

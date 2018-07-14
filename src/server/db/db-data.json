@@ -2,14 +2,14 @@
   "users": [
     {
       "id": 1,
-      "fullName": "Kent C. Dodds",
+      "username": "Kent C. Dodds",
       "password": "123",
       "avatarUrl": "https://cdn-images-1.medium.com/fit/c/120/120/1*9ZtET_L1852yXaDZJUo9CQ.png",
       "bio": "Making software development more accessible · Husband, Father, Mormon, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters @JavaScriptAir · #JS"
     },
     {
       "id": 2,
-      "fullName": "john",
+      "username": "john",
       "password": "123",
       "avatarUrl": "https://cdn-images-1.medium.com/fit/c/120/120/1*9ZtET_L1852yXaDZJUo9CQ.png",
       "bio": "Making software development more accessible · Husband, Father, Mormon, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters @JavaScriptAir · #JS"

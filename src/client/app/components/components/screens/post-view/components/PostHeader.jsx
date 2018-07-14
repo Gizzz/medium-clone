@@ -9,7 +9,7 @@ const PostHeader = ({ post, author }) => (
     <div className="text">
       <div className="title">
         <a href="https://blog.kentcdodds.com/@kentcdodds" target="_blank" rel="noopener noreferrer">
-          {author.fullName}
+          {author.username}
         </a>
         <button className="btn btn--smallest follow">Follow</button>
       </div>
