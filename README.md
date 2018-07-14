@@ -22,7 +22,7 @@ This project is a tribute to the [medium.com](https://medium.com/), the great pl
 - React 16, React-Router
 - styles: SASS, PostCSS(autoprefixer)
 - tools: Webpack 4, Babel, ESLint
-- backend: Node 8.x, json-server as backend mock
+- backend: Node 8.x, Express, lowdb
 
 ## Local Development
 
