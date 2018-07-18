@@ -31,6 +31,7 @@ module.exports = (env) => {
 
   return {
     mode: webpackMode,
+    devtool: 'source-map',
     entry: './src/client/app/index.jsx',
     output: {
       filename: 'js/bundle.[hash].js',
@@ -90,14 +91,5 @@ module.exports = (env) => {
       }),
     ],
     optimization,
-    devtool: 'source-map',
-    devServer: {
-      contentBase: path.resolve(__dirname, 'dist'),
-      port: 4000,
-      historyApiFallback: true,
-      proxy: {
-        '/api': 'http://localhost:3000',
-      },
-    },
   };
 };
