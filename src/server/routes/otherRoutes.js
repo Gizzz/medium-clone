@@ -1,4 +1,5 @@
 const express = require('express');
+const _ = require('lodash');
 //
 const db = require('../db');
 
@@ -19,7 +20,15 @@ router.get('/users/:id', (req, res) => {
     .find({ id: Number(req.params.id) })
     .value();
 
-  res.json(user);
+  const safeUser = userToJson(user);
+  res.json(safeUser);
 });
 
+function userToJson(user) {
+  const safeUser = _.omit(user, ['password']);
+  return safeUser;
+}
+
 module.exports = router;
+
+/* eslint no-use-before-define: off */
