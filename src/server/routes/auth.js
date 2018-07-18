@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const expressJwt = require('express-jwt');
 //
 const db = require('../db');
+const config = require('../config');
 
 const router = express.Router();
 
@@ -26,7 +27,7 @@ router.post('/login', (req, res) => {
 
   const token = jwt.sign({
     id: user.id,
-  }, 'secret', { expiresIn: '30d' });
+  }, config.jwtSecret, { expiresIn: '30d' });
 
   res.json({ token });
 });
@@ -39,7 +40,7 @@ router.get('/check', (req, res) => {
   const token = req.headers.authorization.slice('Bearer '.length);
 
   try {
-    const payload = jwt.verify(token, 'secret');
+    const payload = jwt.verify(token, config.jwtSecret);
     res.json({ message: 'Auth check succeeded.', payload });
   } catch (e) {
     console.log(e);
@@ -47,7 +48,7 @@ router.get('/check', (req, res) => {
   }
 });
 
-router.get('/check-with-middleware', expressJwt({ secret: 'secret', credentialsRequired: false }), (req, res) => {
+router.get('/check-with-middleware', expressJwt({ secret: config.jwtSecret, credentialsRequired: false }), (req, res) => {
   if (!req.user || !req.user.id) {
     res.status(400).send('Token is not provided.');
     return;
