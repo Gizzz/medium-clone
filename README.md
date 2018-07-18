@@ -30,7 +30,7 @@ After intalling all dependencies (`npm i`) run this command:
 ```
 npm run dev
 ```
-This will start both server and client in dev mode. The app is now available on localhost:4000. 
+This will start both server and client in dev mode. The app is now available on localhost:3000.
 
 ## License
 
