@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post('/login', (req, res) => {
   if (!req.body.username || !req.body.password) {
-    res.status(400).send('Username and password should be provided.');
+    res.status(400).json({ error: 'Username and password should be provided.' });
     return;
   }
 
@@ -22,7 +22,7 @@ router.post('/login', (req, res) => {
     .value();
 
   if (!user) {
-    res.status(400).send('User not found.');
+    res.status(400).json({ error: 'User not found.' });
   }
 
   const token = jwt.sign({
@@ -34,7 +34,7 @@ router.post('/login', (req, res) => {
 
 router.get('/check', (req, res) => {
   if (!req.headers.authorization) {
-    res.status(400).send('Token is not provided.');
+    return res.status(400).json({ error: 'Token is not provided.' });
   }
 
   const token = req.headers.authorization.slice('Bearer '.length);
@@ -44,13 +44,13 @@ router.get('/check', (req, res) => {
     res.json({ message: 'Auth check succeeded.', payload });
   } catch (e) {
     console.log(e);
-    res.status(400).send('Token verification failed.');
+    res.status(400).json({ error: 'Token verification failed.' });
   }
 });
 
 router.get('/check-with-middleware', expressJwt({ secret: config.jwtSecret, credentialsRequired: false }), (req, res) => {
   if (!req.user || !req.user.id) {
-    res.status(400).send('Token is not provided.');
+    res.status(400).json({ error: 'Token is not provided.' });
     return;
   }
 
