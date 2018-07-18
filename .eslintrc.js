@@ -8,6 +8,7 @@ module.exports = {
   "rules": {
     "arrow-parens": "off",
     "camelcase": "off",
+    "consistent-return": "off",
     "no-console": "off",
 
     "react/forbid-prop-types": "off",
