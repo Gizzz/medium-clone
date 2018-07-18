@@ -1,6 +1,5 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const expressJwt = require('express-jwt');
 //
 const db = require('../db');
 const config = require('../config');
@@ -55,31 +54,6 @@ router.post('/logout', authorize, (req, res) => {
   res.json({ message: 'Token is revoked.' });
 
   // TODO: create job (monthly) for cleaning up expired revoked tokens from db
-});
-
-router.get('/check', (req, res) => {
-  if (!req.headers.authorization) {
-    return res.status(400).json({ error: 'Token is not provided.' });
-  }
-
-  const token = req.headers.authorization.slice('Bearer '.length);
-
-  try {
-    const payload = jwt.verify(token, config.jwtSecret);
-    res.json({ message: 'Auth check succeeded.', payload });
-  } catch (e) {
-    console.log(e);
-    res.status(400).json({ error: 'Token verification failed.' });
-  }
-});
-
-router.get('/check-with-middleware', expressJwt({ secret: config.jwtSecret, credentialsRequired: false }), (req, res) => {
-  if (!req.user || !req.user.id) {
-    res.status(400).json({ error: 'Token is not provided.' });
-    return;
-  }
-
-  res.send('Auth check succeeded.');
 });
 
 module.exports = router;
