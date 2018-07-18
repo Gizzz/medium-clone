@@ -144,5 +144,11 @@
       "date": "May 14",
       "readTimeEstimate": "4 min"
     }
+  ],
+  "revokedTokens": [
+    {
+      "id": "uuid",
+      "token": "jwt string"
+    }
   ]
 }

@@ -4,6 +4,7 @@ const expressJwt = require('express-jwt');
 //
 const db = require('../db');
 const config = require('../config');
+const authorize = require('../middlewares/authorize');
 
 const router = express.Router();
 
@@ -30,6 +31,30 @@ router.post('/login', (req, res) => {
   }, config.jwtSecret, { expiresIn: '30d' });
 
   res.json({ token });
+});
+
+router.post('/logout', authorize, (req, res) => {
+  // due to authorize middleware, assume that token exists and correct
+  const token = req.headers.authorization.slice('Bearer '.length);
+
+  const existingToken = db
+    .get('revokedTokens')
+    .find({ token })
+    .value();
+
+  if (!existingToken) {
+    db
+      .get('revokedTokens')
+      .insert({
+        id: db._.createId(),
+        token,
+      })
+      .write();
+  }
+
+  res.json({ message: 'Token is revoked.' });
+
+  // TODO: create job (monthly) for cleaning up expired revoked tokens from db
 });
 
 router.get('/check', (req, res) => {
