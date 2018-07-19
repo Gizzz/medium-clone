@@ -6,7 +6,7 @@
   - post page
   - post editing
 - tests
-  - unit (jest, enzyme)
+  - unit, integration (jest, enzyme | react-testing-library)
   - e2e (puppeteer | cypress)
 - auth (jwt)
 - comments (with medium-editor)
