@@ -20,9 +20,7 @@ const Header = () => (
         */}
       </div>
       <div className="actions">
-        <a className="sign-in" href="https://medium.com/m/signin?redirect=https%3A%2F%2Fblog.kentcdodds.com%2F&operation=login" target="_blank" rel="noopener noreferrer">
-          Sign in
-        </a>
+        <Link className="sign-in" to="/login">Sign in</Link>
         <a className="btn" href="https://medium.com/m/signin?redirect=https%3A%2F%2Fblog.kentcdodds.com%2F&operation=register" target="_blank" rel="noopener noreferrer">
           Get started
         </a>

@@ -7,6 +7,11 @@ import Spinner from './components/shared/Spinner';
 
 import './assets/styles/index.scss';
 
+const LoginScreen = Loadable({
+  loader: () => import('./components/screens/login/LoginScreen'),
+  loading: Spinner,
+});
+
 const BlogScreen_Container = Loadable({
   loader: () => import('./components/screens/blog/BlogScreen_Container'),
   loading: Spinner,
@@ -30,6 +35,7 @@ const App = () => (
         <Route path="/blogs/:blogId/posts/:postId/edit" component={PostEditScreen_Container} />
         <Route path="/blogs/:blogId/posts/:postId" component={PostViewScreen_Container} />
         <Route path="/blogs/:blogId" component={BlogScreen_Container} />
+        <Route path="/login" component={LoginScreen} />
         <Route path="/" exact component={BlogScreen_Container} />
       </Switch>
     </React.Fragment>
