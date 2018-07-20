@@ -49,6 +49,13 @@ main.login {
             padding-bottom: 15px;
             text-align: right;
           }
+
+          .error {
+            padding-bottom: 15px;
+            font-size: 16px;
+            line-height: 20px;
+            color: lighten($color-btn-border-error, 10%);
+          }
         }
   
         .create-account {

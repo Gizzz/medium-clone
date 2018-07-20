@@ -13,6 +13,9 @@ const LoginScreen = () => (
             <div className="button-box">
               <button className="btn btn--inverted">Sign in</button>
             </div>
+            <div className="error">
+              Username and password should be provided.
+            </div>
           </form>
           <div className="create-account">
             No account?

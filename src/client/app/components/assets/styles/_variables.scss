@@ -9,7 +9,9 @@ $color-bg-code: rgba(0, 0, 0, .05);
 $color-bg-white-transparent: rgba(255, 255, 255, .97);
 
 $color-link-text: #1C9963;
+$color-link-text-error: complement($color-link-text);
 $color-btn-border: #02B875;
+$color-btn-border-error: complement($color-btn-border);
 
 $height-header-mobile: 57px;
 $height-header-desktop: 66px;
