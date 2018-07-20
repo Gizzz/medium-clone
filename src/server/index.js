@@ -26,10 +26,10 @@ app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
 });
 
-
+const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Medium-clone server is running on port ${port}`);
+  console.log(`Medium-clone server is running on port ${port} (mode: ${mode})`);
 });
 
 /* eslint function-paren-newline: off */
