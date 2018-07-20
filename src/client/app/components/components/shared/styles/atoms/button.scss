@@ -15,6 +15,12 @@
     height: 19px;
     line-height: 19px;
   }
+
+  &--inverted {
+    border-color: $color-btn-border;
+    background-color: $color-btn-border;
+    color: white;
+  }
 }
 
 @media (min-width: 768px) {

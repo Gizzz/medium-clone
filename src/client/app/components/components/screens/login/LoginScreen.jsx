@@ -10,7 +10,7 @@ const LoginScreen = () => (
           <input type="text" name="username" placeholder="Username" />
           <input type="password" name="password" placeholder="Password" />
           <div className="button-box">
-            <button className="btn">Sign in</button>
+            <button className="btn btn--inverted">Sign in</button>
           </div>
         </form>
         <div className="create-account">
