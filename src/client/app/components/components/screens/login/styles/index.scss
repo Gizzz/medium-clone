@@ -3,7 +3,7 @@ main.login {
     .inner-box {
       padding: 50px;
       width: 100%;
-      min-height: calc(101vh - #{$height-header-mobile});
+      min-height: calc(#{$body-min-height} - #{$height-header-mobile});
       background-color: #D7EFEE;
       text-align: center;
 
@@ -78,7 +78,7 @@ main.login {
 @media (min-width: 768px) {
   main.login {
     .container {
-      min-height: 100vh;
+      min-height: calc(#{$body-min-height} - #{$height-header-desktop});
       background-color: #f0f0f0;
       // center child element vertically and horizontally
       display: flex;
