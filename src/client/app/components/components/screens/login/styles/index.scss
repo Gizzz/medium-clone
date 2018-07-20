@@ -99,12 +99,20 @@ main.login {
       align-items: center;
 
       .outer-box {
+        margin-top: 15px;
+        margin-bottom: 15px;
         border-radius: 4px;
         width: auto;
+        min-width: 600px;
         min-height: auto;
         box-shadow: 0 2px 10px rgba(0,0,0,.15);
 
         .inner-box {
+          h1 {
+            font-size: 32px;
+            line-height: 36px;
+          }
+
           h2 {
             display: block;
             margin-left: auto;
@@ -119,6 +127,26 @@ main.login {
   
           form {
             padding-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  main.login {
+    .container {
+      .outer-box {
+        min-width: 900px;
+        background-image: url(../img/bg-login-screen.png);
+        background-repeat: no-repeat;
+        background-position: 20px 100%;
+        background-size: auto 290px;
+
+        .inner-box {
+          form {
+            max-width: 300px;
           }
         }
       }
