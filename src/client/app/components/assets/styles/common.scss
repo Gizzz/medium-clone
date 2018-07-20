@@ -25,7 +25,8 @@ html {
 }
 
 body {
-  min-height: $body-min-height;
+  min-height: 100vh;
+  overflow-y: scroll;
 }
 
 h1, h2, h3, h4, h5, h6 {
