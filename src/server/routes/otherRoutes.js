@@ -1,7 +1,7 @@
 const express = require('express');
-const _ = require('lodash');
 //
 const db = require('../db');
+const { userToJson } = require('../utils');
 
 const router = express.Router();
 
@@ -33,11 +33,6 @@ router.get('/users/:id', (req, res) => {
   const safeUser = userToJson(user);
   res.json(safeUser);
 });
-
-function userToJson(user) {
-  const safeUser = _.omit(user, ['password']);
-  return safeUser;
-}
 
 module.exports = router;
 
