@@ -147,8 +147,8 @@
   ],
   "revokedTokens": [
     {
-      "id": "uuid",
-      "token": "jwt string"
+      "id": "uuid - string",
+      "token": "jwt - string"
     }
   ]
 }
