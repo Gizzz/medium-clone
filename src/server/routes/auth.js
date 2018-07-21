@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const db = require('../db');
 const config = require('../config');
 const authorize = require('../middlewares/authorize');
+//
+const { userToJson } = require('../utils');
 
 const router = express.Router();
 
@@ -30,7 +32,10 @@ router.post('/login', (req, res) => {
     id: user.id,
   }, config.jwtSecret, { expiresIn: '30d' });
 
-  res.json({ token });
+  res.json({
+    user: userToJson(user),
+    token,
+  });
 });
 
 router.post('/logout', authorize, (req, res) => {
