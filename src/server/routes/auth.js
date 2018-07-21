@@ -22,7 +22,8 @@ router.post('/login', (req, res) => {
     .value();
 
   if (!user) {
-    res.status(400).json({ error: 'User not found.' });
+    res.status(404).json({ error: 'User not found. Check username and password.' });
+    return;
   }
 
   const token = jwt.sign({
