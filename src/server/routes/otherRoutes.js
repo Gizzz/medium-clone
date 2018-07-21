@@ -11,6 +11,11 @@ router.get('/blogs/:id', (req, res) => {
     .find({ id: Number(req.params.id) })
     .value();
 
+  if (!blog) {
+    res.status(404).json({ error: 'Item not found.' });
+    return;
+  }
+
   res.json(blog);
 });
 
@@ -19,6 +24,11 @@ router.get('/users/:id', (req, res) => {
     .get('users')
     .find({ id: Number(req.params.id) })
     .value();
+
+  if (!user) {
+    res.status(404).json({ error: 'Item not found.' });
+    return;
+  }
 
   const safeUser = userToJson(user);
   res.json(safeUser);
