@@ -10,6 +10,7 @@ module.exports = {
     "camelcase": "off",
     "consistent-return": "off",
     "no-console": "off",
+    "no-underscore-dangle": "off",
 
     "react/forbid-prop-types": "off",
 
