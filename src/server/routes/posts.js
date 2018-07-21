@@ -10,6 +10,11 @@ router.get('/:id', (req, res) => {
     .find({ id: Number(req.params.id) })
     .value();
 
+  if (!post) {
+    res.status(404).json({ error: 'Item not found.' });
+    return;
+  }
+
   res.json(post);
 });
 
@@ -20,14 +25,21 @@ router.get('/', (req, res) => {
 
 router.patch('/:id', (req, res) => {
   const postChanges = req.body;
-
-  const post = db
+  const postQuery = db
     .get('posts')
-    .find({ id: Number(req.params.id) })
+    .find({ id: Number(req.params.id) });
+
+  const postBeforeChanges = postQuery.value();
+  if (!postBeforeChanges) {
+    res.status(404).json({ error: 'Item not found.' });
+    return;
+  }
+
+  const postAfterChanges = postQuery
     .assign(postChanges)
     .write();
 
-  res.json(post);
+  res.json(postAfterChanges);
 });
 
 module.exports = router;
