@@ -1,12 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 
 import GlobalContext from '../../GlobalContext';
 
-const Header = () => (
+const Header = ({ history }) => (
   <GlobalContext.Consumer>
     {(ctx) => {
       const user = ctx.user.getData();
+
+      const handleLogout = (e) => {
+        e.preventDefault();
+
+        window.localStorage.removeItem('token');
+        ctx.user.setData(null);
+
+        history.push('/');
+      };
 
       const unauthorizedLinks = (
         <React.Fragment>
@@ -16,11 +26,6 @@ const Header = () => (
           </a>
         </React.Fragment>
       );
-
-      const handleLogout = () => {
-        window.localStorage.removeItem('token');
-        ctx.user.setData(null);
-      };
 
       const authorizedLinks = (
         <React.Fragment>
@@ -64,6 +69,12 @@ const Header = () => (
 //   </React.Fragment>
 // );
 
-export default Header;
+Header.propTypes = {
+  history: PropTypes.object.isRequired,
+};
+
+const HeaderWithRouter = withRouter(Header);
+
+export default HeaderWithRouter;
 
 /* eslint max-len: off */
