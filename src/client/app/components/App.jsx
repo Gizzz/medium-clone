@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
+import GlobalContext, { contextValue } from './GlobalContext';
 import Header from './components/shared/Header';
 import Spinner from './components/shared/Spinner';
 
@@ -28,18 +29,20 @@ const PostEditScreen_Container = Loadable({
 });
 
 const App = () => (
-  <Router>
-    <React.Fragment>
-      <Header />
-      <Switch>
-        <Route path="/blogs/:blogId/posts/:postId/edit" component={PostEditScreen_Container} />
-        <Route path="/blogs/:blogId/posts/:postId" component={PostViewScreen_Container} />
-        <Route path="/blogs/:blogId" component={BlogScreen_Container} />
-        <Route path="/login" component={LoginScreen} />
-        <Route path="/" exact component={BlogScreen_Container} />
-      </Switch>
-    </React.Fragment>
-  </Router>
+  <GlobalContext.Provider value={contextValue}>
+    <Router>
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route path="/blogs/:blogId/posts/:postId/edit" component={PostEditScreen_Container} />
+          <Route path="/blogs/:blogId/posts/:postId" component={PostViewScreen_Container} />
+          <Route path="/blogs/:blogId" component={BlogScreen_Container} />
+          <Route path="/login" component={LoginScreen} />
+          <Route path="/" exact component={BlogScreen_Container} />
+        </Switch>
+      </React.Fragment>
+    </Router>
+  </GlobalContext.Provider>
 );
 
 export default App;
