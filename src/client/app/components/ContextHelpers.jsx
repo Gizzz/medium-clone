@@ -34,6 +34,9 @@ const withContext = (Component) => {
     </GlobalContext.Consumer>
   );
 
+  const componentName = Component.displayName || Component.name || 'Component';
+  wrapper.displayName = `WithContext(${componentName})`;
+
   return wrapper;
 };
 
