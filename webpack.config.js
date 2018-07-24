@@ -32,7 +32,7 @@ module.exports = (env) => {
   return {
     mode: webpackMode,
     devtool: 'source-map',
-    entry: './src/client/app/index.jsx',
+    entry: './src/client/index.jsx',
     output: {
       filename: 'js/bundle.[hash].js',
       path: path.resolve(__dirname, 'dist'),
@@ -81,10 +81,10 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(['dist']),
       new HtmlWebpackPlugin({
-        template: './src/client/app/static/index.html',
+        template: './src/client/static/index.html',
       }),
       new CopyWebpackPlugin([
-        { from: './src/client/app/static/favicon.ico' },
+        { from: './src/client/static/favicon.ico' },
       ]),
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash].css',
