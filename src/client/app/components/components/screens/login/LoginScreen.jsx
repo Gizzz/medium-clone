@@ -28,11 +28,18 @@ class LoginScreen extends React.Component {
     })
       .then((response) => {
         window.localStorage.setItem('token', response.data.token);
+        axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         this.props.context.setUser(response.data.user);
 
         this.props.history.push('/');
       }, (error) => {
-        this.setState({ error: error.response.data.error });
+        const isValidationError = error.response.status >= 400 && error.response.status < 500;
+        if (isValidationError) {
+          this.setState({ error: error.response.data.error });
+        } else {
+          // eslint-disable-next-line no-alert
+          window.alert(error);
+        }
       });
   }
 
