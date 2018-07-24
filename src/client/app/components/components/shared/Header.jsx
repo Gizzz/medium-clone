@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
-import GlobalContext from '../../GlobalContext';
+import { GlobalContextConsumer } from '../../ContextHelpers';
 
 const Header = ({ history }) => (
-  <GlobalContext.Consumer>
-    {(ctx) => {
-      const user = ctx.user.getData();
+  <GlobalContextConsumer>
+    {(context) => {
+      const { user } = context;
 
       const handleLogout = (e) => {
         e.preventDefault();
 
         window.localStorage.removeItem('token');
-        ctx.user.setData(null);
+        context.setUser(null);
 
         history.push('/');
       };
@@ -48,7 +48,7 @@ const Header = ({ history }) => (
         </header>
       );
     }}
-  </GlobalContext.Consumer>
+  </GlobalContextConsumer>
 );
 
 Header.propTypes = {

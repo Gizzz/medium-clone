@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { contextValue } from '../../../GlobalContext';
-
 class LoginScreen extends React.Component {
   state = {
     username: '',
@@ -30,11 +28,12 @@ class LoginScreen extends React.Component {
     })
       .then((response) => {
         window.localStorage.setItem('token', response.data.token);
-        contextValue.user.setData(response.data.user);
+        this.props.context.setUser(response.data.user);
 
         this.props.history.push('/');
-      })
-      .catch(error => this.setState({ error: error.response.data.error }));
+      }, (error) => {
+        this.setState({ error: error.response.data.error });
+      });
   }
 
   render() {
@@ -87,6 +86,7 @@ class LoginScreen extends React.Component {
 
 LoginScreen.propTypes = {
   history: PropTypes.object.isRequired,
+  context: PropTypes.object.isRequired,
 };
 
 export default LoginScreen;
