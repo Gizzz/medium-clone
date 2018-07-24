@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const GlobalContext = React.createContext();
 
 class ContextWrapper extends React.Component {
-  // eslint-disable-next-line
+  // eslint-disable-next-line react/sort-comp
   setUser = (user) => {
     this.setState({ user });
   }
