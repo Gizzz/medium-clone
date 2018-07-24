@@ -81,10 +81,10 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(['dist']),
       new HtmlWebpackPlugin({
-        template: './src/client/static/index.html',
+        template: './src/client/app/static/index.html',
       }),
       new CopyWebpackPlugin([
-        { from: './src/client/static/favicon.ico' },
+        { from: './src/client/app/static/favicon.ico' },
       ]),
       new MiniCssExtractPlugin({
         filename: 'css/[name].[contenthash].css',
