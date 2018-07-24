@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 import { GlobalContextConsumer } from '../../ContextHelpers';
 
@@ -12,10 +13,14 @@ const Header = ({ history }) => (
       const handleLogout = (e) => {
         e.preventDefault();
 
-        window.localStorage.removeItem('token');
-        context.setUser(null);
+        axios.post('/api/auth/logout')
+          .then(() => {
+            window.localStorage.removeItem('token');
+            axios.defaults.headers.common.Authorization = undefined;
+            context.setUser(null);
 
-        history.push('/');
+            history.push('/');
+          }, window.alert);
       };
 
       const unauthorizedLinks = (
