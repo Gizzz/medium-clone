@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import queryString from 'query-string';
 
+import { contextShape } from '../../../contextUtils';
+
 class LoginScreen extends React.Component {
   state = {
     username: '',
@@ -95,7 +97,7 @@ class LoginScreen extends React.Component {
 
 LoginScreen.propTypes = {
   history: PropTypes.object.isRequired,
-  context: PropTypes.object.isRequired,
+  context: contextShape.isRequired,
 };
 
 export default LoginScreen;
