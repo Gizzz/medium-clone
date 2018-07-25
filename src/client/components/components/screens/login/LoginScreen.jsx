@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import queryString from 'query-string';
 
 class LoginScreen extends React.Component {
   state = {
@@ -31,7 +32,8 @@ class LoginScreen extends React.Component {
         axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         this.props.context.setUser(response.data.user);
 
-        this.props.history.push('/');
+        const parsedParams = queryString.parse(window.location.search);
+        this.props.history.push(parsedParams.redirectUrl);
       }, (error) => {
         const isValidationError = error.response.status >= 400 && error.response.status < 500;
         if (isValidationError) {
