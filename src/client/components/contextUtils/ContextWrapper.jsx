@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
 import GlobalContext from './GlobalContext';
 import storageHelper from '../utils/storageHelper';
@@ -18,12 +19,21 @@ class ContextWrapper extends React.Component {
 
   componentDidMount() {
     const globalData = storageHelper.getData();
+    if (!globalData) { return; }
 
-    if (globalData) {
-      const { user, token } = globalData;
-      this.setUser(user);
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    const { user, token } = globalData;
+    const tokenPayload = jwtDecode(token);
+    // jwt's 'exp' prop must be multiplied by 1000 to represent date as number
+    const tokenExpiryDate = new Date(tokenPayload.exp * 1000);
+    const currentDate = new Date(Date.now());
+
+    if (currentDate >= tokenExpiryDate) {
+      storageHelper.removeData();
+      return;
     }
+
+    this.setUser(user);
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }
 
   render() {
