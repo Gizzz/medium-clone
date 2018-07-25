@@ -16,11 +16,10 @@ class ContextWrapper extends React.Component {
   }
 
   componentDidMount() {
-    const token = window.localStorage.getItem('token');
-    const user = JSON.parse(window.localStorage.getItem('user'));
-    const isDataAvailable = token && user;
+    const globalData = JSON.parse(window.localStorage.getItem('globalData'));
 
-    if (isDataAvailable) {
+    if (globalData) {
+      const { user, token } = globalData;
       this.setUser(user);
       axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     }

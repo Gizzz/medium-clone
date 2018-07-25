@@ -30,8 +30,10 @@ class LoginScreen extends React.Component {
       password: this.state.password,
     })
       .then((response) => {
-        window.localStorage.setItem('token', response.data.token);
-        window.localStorage.setItem('user', JSON.stringify(response.data.user));
+        window.localStorage.setItem('globalData', JSON.stringify({
+          user: response.data.user,
+          token: response.data.token,
+        }));
         axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         this.props.context.setUser(response.data.user);
 

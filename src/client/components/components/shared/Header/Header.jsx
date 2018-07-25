@@ -17,8 +17,7 @@ const Header = ({ history }) => (
 
         axios.post('/api/auth/logout')
           .then(() => {
-            window.localStorage.removeItem('token');
-            window.localStorage.removeItem('user');
+            window.localStorage.removeItem('globalData');
             axios.defaults.headers.common.Authorization = undefined;
             context.setUser(null);
 
