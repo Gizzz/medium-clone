@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
-import { GlobalContextConsumer } from '../../ContextHelpers';
+import { GlobalContextConsumer } from '../../../ContextHelpers';
 
 const Header = ({ history }) => (
   <GlobalContextConsumer>
