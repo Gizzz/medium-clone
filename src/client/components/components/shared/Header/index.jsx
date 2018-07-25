@@ -4,6 +4,8 @@ import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 import { GlobalContextConsumer } from '../../../ContextHelpers';
+import GuestLinks from './GuestLinks';
+import UserLinks from './UserLinks';
 
 const Header = ({ history }) => (
   <GlobalContextConsumer>
@@ -23,24 +25,6 @@ const Header = ({ history }) => (
           }, window.alert);
       };
 
-      const authorizedLinks = (
-        <div className="user">
-          <a className="sign-out" href="#" onClick={handleLogout}>Sign out</a>
-          <div className="avatar avatar--small">
-            <img src={user && user.avatarUrl} />
-          </div>
-        </div>
-      );
-
-      const unauthorizedLinks = (
-        <div className="guest">
-          <Link className="sign-in" to="/login">Sign in</Link>
-          <a className="btn" href="https://medium.com/m/signin?redirect=https%3A%2F%2Fblog.kentcdodds.com%2F&operation=register" target="_blank" rel="noopener noreferrer">
-            Get started
-          </a>
-        </div>
-      );
-
       return (
         <header className="page">
           <div className="inner">
@@ -48,7 +32,11 @@ const Header = ({ history }) => (
               <Link className="logo" to="/" />
             </div>
             <div className="actions">
-              {!user ? unauthorizedLinks : authorizedLinks}
+              {
+                user
+                  ? <UserLinks user={user} onLogout={handleLogout} />
+                  : <GuestLinks />
+              }
             </div>
           </div>
         </header>
