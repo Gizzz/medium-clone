@@ -32,8 +32,8 @@ class LoginScreen extends React.Component {
         axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         this.props.context.setUser(response.data.user);
 
-        const parsedParams = queryString.parse(window.location.search);
-        this.props.history.push(parsedParams.redirectUrl);
+        const decodedParams = queryString.parse(window.location.search);
+        this.props.history.push(decodedParams.redirectUrl);
       }, (error) => {
         const isValidationError = error.response.status >= 400 && error.response.status < 500;
         if (isValidationError) {
