@@ -4,6 +4,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 import { contextShape } from '../../../contextUtils';
+import storageHelper from '../../../utils/storageHelper';
 
 class LoginScreen extends React.Component {
   state = {
@@ -30,10 +31,10 @@ class LoginScreen extends React.Component {
       password: this.state.password,
     })
       .then((response) => {
-        window.localStorage.setItem('globalData', JSON.stringify({
+        storageHelper.setData({
           user: response.data.user,
           token: response.data.token,
-        }));
+        });
         axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         this.props.context.setUser(response.data.user);
 

@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 import { GlobalContextConsumer } from '../../../contextUtils';
+import storageHelper from '../../../utils/storageHelper';
 import GuestLinks from './GuestLinks';
 import UserLinks from './UserLinks';
 
@@ -17,7 +18,7 @@ const Header = ({ history }) => (
 
         axios.post('/api/auth/logout')
           .then(() => {
-            window.localStorage.removeItem('globalData');
+            storageHelper.removeData();
             axios.defaults.headers.common.Authorization = undefined;
             context.setUser(null);
 

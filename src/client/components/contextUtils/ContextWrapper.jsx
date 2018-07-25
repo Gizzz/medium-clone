@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import GlobalContext from './GlobalContext';
+import storageHelper from '../utils/storageHelper';
 
 class ContextWrapper extends React.Component {
   // eslint-disable-next-line react/sort-comp
@@ -16,7 +17,7 @@ class ContextWrapper extends React.Component {
   }
 
   componentDidMount() {
-    const globalData = JSON.parse(window.localStorage.getItem('globalData'));
+    const globalData = storageHelper.getData();
 
     if (globalData) {
       const { user, token } = globalData;
