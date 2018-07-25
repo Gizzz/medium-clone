@@ -57,9 +57,17 @@ header.page {
     }
 
     .actions {
-      .sign-in {
-        display: none;
-        font-size: 16px;
+      font-size: 16px;
+
+      .guest,
+      .user {
+        display: flex;
+        align-items: center;
+
+        .sign-in,
+        .sign-out {
+          margin-right: 11px;
+        }
       }
     }
   }
@@ -82,9 +90,13 @@ header.page {
       }
 
       .actions {
-        .sign-in {
-          display: inline-block;
-          margin-right: 11px;
+        .user {
+          .avatar {
+            img {
+              width: 32px;
+              height: 32px;
+            }
+          }
         }
       }
     }

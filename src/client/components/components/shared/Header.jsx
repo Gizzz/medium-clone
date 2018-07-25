@@ -23,21 +23,22 @@ const Header = ({ history }) => (
           }, window.alert);
       };
 
+      const authorizedLinks = (
+        <div className="user">
+          <a className="sign-out" href="#" onClick={handleLogout}>Sign out</a>
+          <div className="avatar avatar--small">
+            <img src={user && user.avatarUrl} />
+          </div>
+        </div>
+      );
+
       const unauthorizedLinks = (
-        <React.Fragment>
+        <div className="guest">
           <Link className="sign-in" to="/login">Sign in</Link>
           <a className="btn" href="https://medium.com/m/signin?redirect=https%3A%2F%2Fblog.kentcdodds.com%2F&operation=register" target="_blank" rel="noopener noreferrer">
             Get started
           </a>
-        </React.Fragment>
-      );
-
-      const authorizedLinks = (
-        <React.Fragment>
-          <span>user: {user && user.username}</span>
-          {' | '}
-          <a href="#" onClick={handleLogout}>Sign out</a>
-        </React.Fragment>
+        </div>
       );
 
       return (
