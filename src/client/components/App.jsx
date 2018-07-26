@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-import { ContextWrapper, withContext } from './contextUtils';
+import { ContextWrapper, withContext } from './utils/context';
 import Header from './components/shared/Header';
 import Spinner from './components/shared/Spinner';
 

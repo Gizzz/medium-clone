@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
-import { GlobalContextConsumer } from '../../../contextUtils';
+import { GlobalContextConsumer } from '../../../utils/context';
 import storageHelper from '../../../utils/storageHelper';
 import GuestLinks from './GuestLinks';
 import UserLinks from './UserLinks';

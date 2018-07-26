@@ -4,7 +4,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 import GlobalContext from './GlobalContext';
-import storageHelper from '../utils/storageHelper';
+import storageHelper from '../storageHelper';
 
 class ContextWrapper extends React.Component {
   // eslint-disable-next-line react/sort-comp

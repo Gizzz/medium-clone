@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import queryString from 'query-string';
 
-import { contextShape } from '../../../contextUtils';
+import { contextShape } from '../../../utils/context';
 import storageHelper from '../../../utils/storageHelper';
 
 class LoginScreen extends React.Component {
