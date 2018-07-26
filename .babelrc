@@ -7,7 +7,6 @@
     "transform-class-properties",
     "transform-object-rest-spread",
     "transform-react-jsx-source",
-    "syntax-dynamic-import",
-    "root-import"
+    "syntax-dynamic-import"
   ]
 }
