@@ -8,6 +8,11 @@ import Spinner from './components/shared/Spinner';
 
 import './assets/styles/index.scss';
 
+const RegisterScreen = Loadable({
+  loader: () => import('./components/screens/register/RegisterScreen'),
+  loading: Spinner,
+});
+
 const LoginScreen = Loadable({
   loader: () => import('./components/screens/login/LoginScreen'),
   loading: Spinner,
@@ -39,6 +44,7 @@ const App = () => (
           <Route path="/blogs/:blogId/posts/:postId/edit" component={PostEditScreen_Container} />
           <Route path="/blogs/:blogId/posts/:postId" component={PostViewScreen_Container} />
           <Route path="/blogs/:blogId" component={BlogScreen_Container} />
+          <Route path="/register" component={RegisterScreen} />
           <Route path="/login" component={LoginScreenWithContext} />
           <Route path="/" exact component={BlogScreen_Container} />
         </Switch>
