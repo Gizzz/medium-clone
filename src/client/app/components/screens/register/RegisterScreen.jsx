@@ -17,9 +17,9 @@ class RegisterScreen extends React.Component {
     return (
       <MarkupWrapper>
         <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.username} onChange={this.handleInputChange} name="username" placeholder="Username" />
-          <input type="password" value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="Password" />
-          <input type="password" name="password-again" placeholder="Password again" />
+          <input type="text" value={this.state.username} onChange={this.handleInputChange} name="username" placeholder="Username" required />
+          <input type="password" value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="Password" required />
+          <input type="password" name="password-again" placeholder="Password again" required />
           <div className="button-box">
             <button className="btn btn--inverted">Sign up</button>
           </div>
