@@ -8,9 +8,7 @@ const GuestLinks = () => {
   return (
     <div className="guest">
       <Link className="sign-in" to={`/login?redirectUrl=${encodedRedirectUrl}`}>Sign in</Link>
-      <a className="btn" href="https://medium.com/m/signin?redirect=https%3A%2F%2Fblog.kentcdodds.com%2F&operation=register" target="_blank" rel="noopener noreferrer">
-        Get started
-      </a>
+      <Link className="btn" to={`/register?redirectUrl=${encodedRedirectUrl}`}>Get started</Link>
     </div>
   );
 };

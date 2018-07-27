@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const MarkupWrapper = ({ children }) => (
   <main className="login">
@@ -14,9 +15,7 @@ const MarkupWrapper = ({ children }) => (
           <div className="create-account">
             No account?
             {' '}
-            <a href="https://medium.com/m/signin?redirect=https%3A%2F%2Fblog.kentcdodds.com%2F&operation=register" target="_blank" rel="noopener noreferrer">
-              Create one
-            </a>.
+            <Link to="/register">Create one</Link>.
           </div>
           <div className="terms">
             To make original Medium work, they(Medium team) log user data and share it with service providers. Click "Sign in" above to accept Medium’s
