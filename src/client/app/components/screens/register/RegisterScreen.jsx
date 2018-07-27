@@ -14,7 +14,7 @@ class RegisterScreen extends React.Component {
     );
 
     return (
-      <main className="login">
+      <main className="login login--register">
         <div className="container">
           <div className="outer-box">
             <div className="inner-box">
@@ -24,13 +24,14 @@ class RegisterScreen extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <input type="text" value={this.state.username} onChange={this.handleInputChange} name="username" placeholder="Username" />
                 <input type="password" value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="Password" />
+                <input type="password" name="password-again" placeholder="Password again" />
                 <div className="button-box">
                   <button className="btn btn--inverted">Sign up</button>
                 </div>
                 {this.state.error && errorBox}
               </form>
 
-              <div className="create-account">
+              <div className="account">
                 Already have an account?
                 {' '}
                 <Link to="/login">Sign in</Link>.
