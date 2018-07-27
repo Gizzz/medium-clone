@@ -26,10 +26,7 @@
     "loc": "npx cloc src/ --exclude-dir=vendor",
     "\n# ===================== DEPLOY SCRIPTS: ========================": "",
     "publish": "git push heroku master",
-    "heroku-postbuild": "npm run build-prod",
-    "\n# ===================== MARKUP SCRIPTS: ========================": "",
-    "sass": "node-sass markup-static/styles/index.scss markup-static/styles/index.css -w -r --source-map=markup-static/styles/index.css.map",
-    "loc-markup": "npx cloc markup-static/ --exclude-lang=CSS --exclude-dir=vendor"
+    "heroku-postbuild": "npm run build-prod"
   },
   "pre-commit": [
     "lint"
