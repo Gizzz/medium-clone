@@ -23,7 +23,7 @@
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=production node src/server/index.js",
-    "loc": "npx cloc src/ --exclude-dir=vendor",
+    "loc": "cloc src/ --exclude-dir=vendor",
     "\n# ===================== DEPLOY SCRIPTS: ========================": "",
     "publish": "git push heroku master",
     "heroku-postbuild": "npm run build-prod"
@@ -62,6 +62,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "cloc": "^2.3.3",
     "concurrently": "^3.6.0",
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.2.0",
