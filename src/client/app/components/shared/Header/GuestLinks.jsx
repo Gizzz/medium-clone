@@ -1,20 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import queryString from 'query-string';
+
+import urlHelper from '../../../utils/urlHelper';
 
 const GuestLinks = () => {
-  const decodedParams = queryString.parse(window.location.search);
-  const hasRedirectUrl = Boolean(decodedParams.redirectUrl);
-
-  let redirectUrl;
-  if (hasRedirectUrl) {
-    // eslint-disable-next-line prefer-destructuring
-    redirectUrl = decodedParams.redirectUrl;
-  } else {
-    redirectUrl = window.location.pathname + window.location.search + window.location.hash;
-  }
-
-  const encodedRedirectUrl = window.encodeURIComponent(redirectUrl);
+  const encodedRedirectUrl = urlHelper.computeEncodedRedirectUrl();
 
   return (
     <div className="guest">
