@@ -12,7 +12,7 @@ const MarkupWrapper = ({ children }) => (
 
           {children}
 
-          <div className="create-account">
+          <div className="account">
             No account?
             {' '}
             <Link to="/register">Create one</Link>.
