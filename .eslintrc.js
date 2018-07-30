@@ -12,6 +12,7 @@ module.exports = {
     "no-console": "off",
     "no-underscore-dangle": "off",
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-use-before-define": ["error", { "functions": false }],
 
     "react/forbid-prop-types": "off",
 
