@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const _ = require('lodash');
 //
 const db = require('../db');
 const config = require('../config');
@@ -8,6 +9,70 @@ const authorize = require('../middlewares/authorize');
 const { userToJson } = require('../utils');
 
 const router = express.Router();
+
+router.post('/register', (req, res) => {
+  const reqBody = { ...req.body };
+  _.forOwn(reqBody, (value) => {
+    if (typeof value !== 'string') { throw new Error('Unexpected data type.'); }
+  });
+  reqBody.username = reqBody.username.trim();
+
+  if (!reqBody.username || !reqBody.password || !reqBody.confirmPassword) {
+    res.status(400).json({ error: 'All fields are required.' });
+    return;
+  }
+
+  if (reqBody.username.length < 3) {
+    res.status(400).json({ error: 'Username should be at least 3 symbols long.' });
+    return;
+  }
+
+  if (reqBody.password.length < 6) {
+    res.status(400).json({ error: 'Password should be at least 6 symbols long.' });
+    return;
+  }
+
+  if (reqBody.password !== reqBody.confirmPassword) {
+    res.status(400).json({ error: 'Password and confirmation do not match.' });
+    return;
+  }
+
+  const existingUser = db
+    .get('users')
+    .find({ username: reqBody.username })
+    .value();
+
+  if (existingUser) {
+    res.status(400).json({ error: 'This username is already taken. Please choose another one.' });
+    return;
+  }
+
+  const maxUserId = db
+    .get('users')
+    .value()
+    .map(user => user.id)
+    .reduce((acc, cur) => (cur > acc ? cur : acc));
+
+  const newUser = db
+    .get('users')
+    .insert({
+      id: maxUserId + 1,
+      username: reqBody.username,
+      password: reqBody.password,
+      avatarUrl: 'https://cdn-images-1.medium.com/fit/c/120/120/0*cmAOkoH29zoIVIBT',
+      bio: '',
+    })
+    .write();
+
+  const token = jwt.sign({
+    id: newUser.id,
+  }, config.jwtSecret, { expiresIn: '30d' });
+
+  res.json({
+    user: userToJson(newUser),
+    token,
+  });
+});
 
 router.post('/login', (req, res) => {
   if (!req.body.username || !req.body.password) {
