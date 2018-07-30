@@ -54,14 +54,15 @@ router.post('/register', async (req, res) => {
     .map(user => user.id)
     .reduce((acc, cur) => (cur > acc ? cur : acc));
 
-  const passwordHash = await bcrypt.hash(reqBody.password, 10);
+  const saltRounds = 10;
+  const passwordHash = await bcrypt.hash(reqBody.password, saltRounds);
 
   const newUser = db
     .get('users')
     .insert({
       id: maxUserId + 1,
       username: reqBody.username,
-      password: passwordHash,
+      passwordHash,
       avatarUrl: 'https://cdn-images-1.medium.com/fit/c/120/120/0*cmAOkoH29zoIVIBT',
       bio: '',
     })
@@ -93,7 +94,7 @@ router.post('/login', async (req, res) => {
     return;
   }
 
-  const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
+  const isPasswordCorrect = await bcrypt.compare(req.body.password, user.passwordHash);
   if (!isPasswordCorrect) {
     res.status(404).json({ error: 'Password is wrong.' });
     return;
