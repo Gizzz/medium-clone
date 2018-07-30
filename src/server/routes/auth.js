@@ -18,33 +18,9 @@ router.post('/register', async (req, res) => {
   });
   reqBody.username = reqBody.username.trim();
 
-  if (!reqBody.username || !reqBody.password || !reqBody.confirmPassword) {
-    res.status(400).json({ error: 'All fields are required.' });
-    return;
-  }
-
-  if (reqBody.username.length < 3) {
-    res.status(400).json({ error: 'Username should be at least 3 symbols long.' });
-    return;
-  }
-
-  if (reqBody.password.length < 6) {
-    res.status(400).json({ error: 'Password should be at least 6 symbols long.' });
-    return;
-  }
-
-  if (reqBody.password !== reqBody.confirmPassword) {
-    res.status(400).json({ error: 'Password and confirmation do not match.' });
-    return;
-  }
-
-  const existingUser = db
-    .get('users')
-    .find({ username: reqBody.username })
-    .value();
-
-  if (existingUser) {
-    res.status(400).json({ error: 'This username is already taken. Please choose another one.' });
+  const validationResult = validateRegistrationData(reqBody);
+  if (!validationResult.isValid) {
+    res.status(400).json({ error: validationResult.error });
     return;
   }
 
@@ -133,5 +109,37 @@ router.post('/logout', authorize, (req, res) => {
 
   // TODO: create job (monthly) for cleaning up expired revoked tokens from db
 });
+
+// ===========================================================================
+// helpers
+
+function validateRegistrationData(data) {
+  if (!data.username || !data.password || !data.confirmPassword) {
+    return { isValid: false, error: 'All fields are required.' };
+  }
+
+  if (data.username.length < 3) {
+    return { isValid: false, error: 'Username should be at least 3 symbols long.' };
+  }
+
+  if (data.password.length < 6) {
+    return { isValid: false, error: 'Password should be at least 6 symbols long.' };
+  }
+
+  if (data.password !== data.confirmPassword) {
+    return { isValid: false, error: 'Password and confirmation do not match.' };
+  }
+
+  const existingUser = db
+    .get('users')
+    .find({ username: data.username })
+    .value();
+
+  if (existingUser) {
+    return { isValid: false, error: 'This username is already taken.' };
+  }
+
+  return { isValid: true, error: null };
+}
 
 module.exports = router;
