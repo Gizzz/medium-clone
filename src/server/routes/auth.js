@@ -1,5 +1,6 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const _ = require('lodash');
 //
 const db = require('../db');
@@ -10,7 +11,7 @@ const { userToJson } = require('../utils');
 
 const router = express.Router();
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   const reqBody = { ...req.body };
   _.forOwn(reqBody, (value) => {
     if (typeof value !== 'string') { throw new Error('Unexpected data type.'); }
@@ -53,12 +54,14 @@ router.post('/register', (req, res) => {
     .map(user => user.id)
     .reduce((acc, cur) => (cur > acc ? cur : acc));
 
+  const passwordHash = await bcrypt.hash(reqBody.password, 10);
+
   const newUser = db
     .get('users')
     .insert({
       id: maxUserId + 1,
       username: reqBody.username,
-      password: reqBody.password,
+      password: passwordHash,
       avatarUrl: 'https://cdn-images-1.medium.com/fit/c/120/120/0*cmAOkoH29zoIVIBT',
       bio: '',
     })
@@ -74,7 +77,7 @@ router.post('/register', (req, res) => {
   });
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   if (!req.body.username || !req.body.password) {
     res.status(400).json({ error: 'Username and password should be provided.' });
     return;
@@ -82,14 +85,17 @@ router.post('/login', (req, res) => {
 
   const user = db
     .get('users')
-    .find({
-      username: req.body.username,
-      password: req.body.password,
-    })
+    .find({ username: req.body.username })
     .value();
 
   if (!user) {
-    res.status(404).json({ error: 'User not found. Check username and password.' });
+    res.status(404).json({ error: 'User not found. Check the username.' });
+    return;
+  }
+
+  const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
+  if (!isPasswordCorrect) {
+    res.status(404).json({ error: 'Password is wrong.' });
     return;
   }
 

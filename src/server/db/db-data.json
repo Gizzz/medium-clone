@@ -3,14 +3,14 @@
     {
       "id": 1,
       "username": "Kent C. Dodds",
-      "password": "123",
+      "password": "$2b$10$3hjkzdg2VjtwsIDcWQludebM.jUfq6vSicB4vwna78JW3UqtwSi06",
       "avatarUrl": "https://cdn-images-1.medium.com/fit/c/120/120/1*9ZtET_L1852yXaDZJUo9CQ.png",
       "bio": "Making software development more accessible · Husband, Father, Mormon, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters @JavaScriptAir · #JS"
     },
     {
       "id": 2,
       "username": "john",
-      "password": "123",
+      "password": "$2b$10$6FgKL1XyzoBxLV4dNS8CYeo.1UvAtkSIien9.zDMfNJb8/Ke6HPIK",
       "avatarUrl": "https://cdn-images-1.medium.com/fit/c/120/120/1*9ZtET_L1852yXaDZJUo9CQ.png",
       "bio": "Making software development more accessible · Husband, Father, Mormon, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters @JavaScriptAir · #JS"
     }
