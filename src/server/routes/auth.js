@@ -24,25 +24,7 @@ router.post('/register', async (req, res) => {
     return;
   }
 
-  const maxUserId = db
-    .get('users')
-    .value()
-    .map(user => user.id)
-    .reduce((acc, cur) => (cur > acc ? cur : acc));
-
-  const saltRounds = 10;
-  const passwordHash = await bcrypt.hash(reqBody.password, saltRounds);
-
-  const newUser = db
-    .get('users')
-    .insert({
-      id: maxUserId + 1,
-      username: reqBody.username,
-      passwordHash,
-      avatarUrl: 'https://cdn-images-1.medium.com/fit/c/120/120/0*cmAOkoH29zoIVIBT',
-      bio: '',
-    })
-    .write();
+  const newUser = await createNewUser(reqBody.username, reqBody.password);
 
   const token = jwt.sign({
     id: newUser.id,
@@ -140,6 +122,30 @@ function validateRegistrationData(data) {
   }
 
   return { isValid: true, error: null };
+}
+
+async function createNewUser(username, password) {
+  const maxUserId = db
+    .get('users')
+    .value()
+    .map(user => user.id)
+    .reduce((acc, cur) => (cur > acc ? cur : acc));
+
+  const saltRounds = 10;
+  const passwordHash = await bcrypt.hash(password, saltRounds);
+
+  const newUser = db
+    .get('users')
+    .insert({
+      id: maxUserId + 1,
+      username,
+      passwordHash,
+      avatarUrl: 'https://cdn-images-1.medium.com/fit/c/120/120/0*cmAOkoH29zoIVIBT',
+      bio: '',
+    })
+    .write();
+
+  return newUser;
 }
 
 module.exports = router;
