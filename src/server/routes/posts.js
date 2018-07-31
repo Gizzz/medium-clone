@@ -1,4 +1,6 @@
 const express = require('express');
+const sanitizeHtml = require('sanitize-html');
+const _ = require('lodash');
 //
 const db = require('../db');
 
@@ -24,7 +26,7 @@ router.get('/', (req, res) => {
 });
 
 router.patch('/:id', (req, res) => {
-  const postChanges = req.body;
+  const postChanges = _.cloneDeep(req.body);
   const postQuery = db
     .get('posts')
     .find({ id: Number(req.params.id) });
@@ -34,6 +36,12 @@ router.patch('/:id', (req, res) => {
     res.status(404).json({ error: 'Item not found.' });
     return;
   }
+
+  postChanges.contentMarkup = sanitizeHtml(postChanges.contentMarkup, {
+    allowedAttributes: {
+      a: ['href', 'target', 'rel'],
+    },
+  });
 
   const postAfterChanges = postQuery
     .assign(postChanges)
