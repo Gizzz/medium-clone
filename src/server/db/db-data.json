@@ -10,9 +10,9 @@
     {
       "id": 2,
       "username": "john",
-      "passwordHash": "$2b$10$6FgKL1XyzoBxLV4dNS8CYeo.1UvAtkSIien9.zDMfNJb8/Ke6HPIK",
-      "avatarUrl": "https://cdn-images-1.medium.com/fit/c/120/120/1*9ZtET_L1852yXaDZJUo9CQ.png",
-      "bio": "Making software development more accessible · Husband, Father, Mormon, Teacher, OSS, GDE, @TC39 · @PayPalEng @eggheadio @FrontendMasters @JavaScriptAir · #JS"
+      "passwordHash": "$2b$10$eGtavxWlp1PwJ6VpZ4cTieDki738YPmDLndi1NckBkfEKrZ136jSS",
+      "avatarUrl": "https://cdn-images-1.medium.com/fit/c/120/120/0*cmAOkoH29zoIVIBT",
+      "bio": ""
     }
   ],
   "blogs": [
