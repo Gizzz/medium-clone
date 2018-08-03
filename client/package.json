@@ -1,0 +1,19 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "jwt-decode": "^2.2.0",
+    "medium-editor": "^5.23.3",
+    "prop-types": "^15.6.1",
+    "query-string": "^6.1.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-loadable": "^5.4.0",
+    "react-router-dom": "^4.3.1"
+  }
+}
