@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build-dev": "webpack --env.MODE=dev --config webpack.config.js --progress",
+    "build-dev-watch": "webpack --env.MODE=dev --config webpack.config.js --progress --watch",
+    "build-prod": "webpack --env.MODE=prod --config webpack.config.js --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
