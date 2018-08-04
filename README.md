@@ -13,6 +13,7 @@ This project is a tribute to the [medium.com](https://medium.com/), the great pl
 - blog screen with posts
 - post view screen
 - post edit screen
+- login / registration (jwt token-based)
 - responsive web desing
 - mobile-first
 - code-splitting
