@@ -19,8 +19,8 @@
     "dev-server": "cd server && npm run dev",
     "dev-client": "npm run clean-dist && cd client && npm run build-dev-watch",
     "prod": "npm run build-prod && npm run start",
-    "lint": "eslint --ext .js --ext .jsx src/ ",
-    "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
+    "lint": "eslint --ext .js --ext .jsx server/src client/src",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx server/src client/src",
     "test": "echo \"Error: no test specified\" && exit 1",
     "loc": "cloc server/src client/src --exclude-dir=vendor",
     "\n# ===================== DEPLOY SCRIPTS: ========================": "",
@@ -31,9 +31,6 @@
   "pre-commit": [
     "lint"
   ],
-  "dependencies": {
-    "lodash": "^4.17.10"
-  },
   "devDependencies": {
     "cloc": "^2.3.3",
     "concurrently": "^3.6.0",
