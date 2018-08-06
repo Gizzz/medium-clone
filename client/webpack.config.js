@@ -79,7 +79,7 @@ module.exports = (env) => {
       extensions: ['.js', '.jsx', '.json'],
     },
     plugins: [
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin(['dist'], { root: path.resolve(__dirname, '../') }),
       new HtmlWebpackPlugin({
         template: './src/static/index.html',
       }),
