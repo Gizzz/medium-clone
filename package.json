@@ -12,12 +12,11 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "build": "npm run build-prod",
-    "build-dev": "webpack --env.MODE=dev --config webpack.config.js --progress",
-    "build-prod": "webpack --env.MODE=prod --config webpack.config.js --progress",
+    "build-client-dev": "cd client && npm run build-dev",
+    "build-client-prod": "cd client && npm run build-prod",
     "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
     "dev-server": "cd server && npm run dev",
-    "dev-client": "shx rm -rf dist && npm run build-dev -- --watch",
+    "dev-client": "shx rm -rf dist && cd client && npm run build-dev-watch",
     "prod": "npm run build-prod && npm run start",
     "lint": "eslint --ext .js --ext .jsx src/ ",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
