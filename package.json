@@ -12,6 +12,7 @@
     "npm": "5.6.0"
   },
   "scripts": {
+    "postinstall": "cd server && npm i && cd ../client && npm i",
     "clean-dist": "shx rm -rf dist",
     "build-client-dev": "cd client && npm run build-dev",
     "build-client-prod": "cd client && npm run build-prod",
