@@ -22,7 +22,7 @@
     "lint": "eslint --ext .js --ext .jsx src/ ",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "loc": "cloc src server/src --exclude-dir=vendor",
+    "loc": "cloc server/src client/src --exclude-dir=vendor",
     "\n# ===================== DEPLOY SCRIPTS: ========================": "",
     "publish": "git push heroku master",
     "heroku-postbuild": "npm run build-prod",
