@@ -5,10 +5,10 @@
   - blog page
   - post page
   - post editing
+- auth (jwt) [done]
 - tests
   - unit, integration (jest, enzyme | react-testing-library)
   - e2e (puppeteer | cypress)
-- auth (jwt)
 - comments (with medium-editor)
 - member page (route: `/@member_name`)
 - multiple blogs
