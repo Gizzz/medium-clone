@@ -10,13 +10,18 @@ This project is a tribute to the [medium.com](https://medium.com/), the great pl
 
 ## Features
 
-- blog screen with posts
-- post view screen
-- post edit screen
-- login / registration (jwt token-based)
+tech features:
+- authorization (jwt token-based)
+- react's new context api for state management
+- code-splitting
 - responsive web desing
 - mobile-first
-- code-splitting
+
+screens:
+- blog with posts
+- post view
+- post edit
+- login / registration
 
 ## Tech Stack
 
