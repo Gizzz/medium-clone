@@ -11,6 +11,9 @@
     "node": "8.11.1",
     "npm": "5.6.0"
   },
+  "babel": {
+    "presets": "./.babelrc.js"
+  },
   "scripts": {
     "build": "npm run build-prod",
     "build-dev": "webpack --env.MODE=dev --config webpack.config.js --progress",
