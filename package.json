@@ -11,6 +11,9 @@
     "node": "8.11.1",
     "npm": "5.6.0"
   },
+  "babel": {
+    "presets": "./.babelrc.js"
+  },
   "scripts": {
     "build": "npm run build-prod",
     "build-dev": "webpack --env.MODE=dev --config webpack.config.js --progress",
@@ -21,7 +24,9 @@
     "prod": "npm run build-prod && npm run start",
     "lint": "eslint --ext .js --ext .jsx src/ ",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch",
+    "test-once": "jest",
+    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "start": "cross-env NODE_ENV=production node src/server/index.js",
     "loc": "cloc src/ --exclude-dir=vendor",
     "\n# ===================== DEPLOY SCRIPTS: ========================": "",
@@ -56,6 +61,7 @@
     "autoprefixer": "^8.6.4",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^7.1.4",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -76,6 +82,7 @@
     "eslint-plugin-react": "^7.9.1",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.5.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "nodemon": "^1.17.5",
