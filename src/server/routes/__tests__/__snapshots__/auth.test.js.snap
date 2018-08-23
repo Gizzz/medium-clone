@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`auth login - should check password 1`] = `"Password is wrong."`;
+
+exports[`auth login - should require username and password 1`] = `"Username and password should be provided."`;
+
+exports[`auth login - should require username and password 2`] = `"Username and password should be provided."`;
+
+exports[`auth login - should require username and password 3`] = `"Username and password should be provided."`;
+
+exports[`auth login - should return 404 if username does not exist 1`] = `"User not found. Check the username."`;
