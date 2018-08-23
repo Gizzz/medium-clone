@@ -25,6 +25,8 @@
     "lint": "eslint --ext .js --ext .jsx src/ ",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/ ",
     "test": "jest --watch",
+    "test-once": "jest",
+    "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "start": "cross-env NODE_ENV=production node src/server/index.js",
     "loc": "cloc src/ --exclude-dir=vendor",
     "\n# ===================== DEPLOY SCRIPTS: ========================": "",
