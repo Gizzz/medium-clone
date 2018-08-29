@@ -1,8 +1,10 @@
 import axios from 'axios';
+
 import startServer from '../../startServer';
+import config from '../../config';
 
 describe('auth', () => {
-  const baseUrl = 'http://localhost:3000';
+  const baseUrl = `http://localhost:${config.defaultPort}`;
   let server;
 
   beforeAll(async () => {

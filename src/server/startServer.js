@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //
 const routes = require('./routes');
+const config = require('./config');
 
 function startServer(port) {
   const app = express();
@@ -33,7 +34,7 @@ function startServer(port) {
   });
 
   const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
-  const defaultPort = 3000;
+  const { defaultPort } = config;
   const actualPort = port || process.env.PORT || defaultPort;
 
   return new Promise(resolve => {
