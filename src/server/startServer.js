@@ -3,11 +3,16 @@ const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fs = require('fs');
+const util = require('util');
 //
 const routes = require('./routes');
 const config = require('./config');
 
-function startServer(port) {
+/**
+ * @description starts server and when started - returns server instance
+ */
+async function startServer(port) {
   const app = express();
 
   // middlewares
@@ -33,9 +38,14 @@ function startServer(port) {
     res.status(500).json({ error: 'Internal server error.' });
   });
 
-  const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+  const mode = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
   const { defaultPort } = config;
   const actualPort = port || process.env.PORT || defaultPort;
+
+  if (process.env.NODE_ENV === 'test') {
+    console.log('Setting up test-db...');
+    await createTestDbFile();
+  }
 
   return new Promise(resolve => {
     const server = app.listen(actualPort, () => {
@@ -43,6 +53,14 @@ function startServer(port) {
       resolve(server);
     });
   });
+}
+
+async function createTestDbFile() {
+  const readFile = util.promisify(fs.readFile);
+  const writeFile = util.promisify(fs.writeFile);
+
+  const originalData = await readFile(path.resolve(__dirname, 'db/db-data.json'), 'utf8');
+  await writeFile(path.resolve(__dirname, 'db/test-db-data.json'), originalData);
 }
 
 module.exports = startServer;

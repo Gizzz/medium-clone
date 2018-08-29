@@ -1,5 +1,4 @@
 node_modules/
 dist/
 
-markup-static/styles/index.css
-markup-static/styles/index.css.map
+src/server/db/test-db-data.json
