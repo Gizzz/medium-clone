@@ -28,6 +28,7 @@
     "test-once": "jest",
     "test-debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "start": "cross-env NODE_ENV=production node src/server/index.js",
+    "debug": "cross-env NODE_ENV=test node --nolazy --inspect-brk=9229 src/server/index.js",
     "loc": "cloc src/ --exclude-dir=vendor",
     "\n# ===================== DEPLOY SCRIPTS: ========================": "",
     "publish": "git push heroku master",
