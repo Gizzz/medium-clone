@@ -1,14 +1,14 @@
-// in tests - jest sets NODE_ENV to 'test'
-const isTest = String(process.env.NODE_ENV) === 'test';
-const envPreset = ["env"];
-if (!isTest) {
-  // if not test - enable tree shaking by webpack
-  envPreset.push({"modules": false});
+// 'modules:false' enables webpack's tree shaking, but breaks jest, so should be defaulted for tests
+const envPresetOptions = { "modules": false };
+
+if (process.env.NODE_ENV === 'test') {
+  envPresetOptions["modules"] = 'commonjs';
+  envPresetOptions["targets"] = { "node": "current" };
 }
 
 module.exports = {
   "presets": [
-    envPreset,
+    ["env", envPresetOptions],
     "react"
   ],
   "plugins": [
