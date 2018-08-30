@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import startServer from '../../startServer';
 import config from '../../config';
+import db from '../../db';
+import { userToJson } from '../../utils';
 import { initDb, generateRegistrationData } from '../testUtils/db';
 
 describe('auth', () => {
@@ -87,12 +89,12 @@ describe('auth', () => {
       .then(res => res.data);
 
     expect(loginResponse.user).toEqual(testUser);
-    expect(loginResponse.user.password).not.toBeDefined();
+    expect(loginResponse.user.passwordHash).not.toBeDefined();
     expect(loginResponse.token).toBeDefined();
     expect(typeof loginResponse.token).toBe('string');
   });
 
-  test('register - request with empty payload should fail', async () => {
+  test('register - should fail on request with empty payload', async () => {
     // no payload object
     const err1 = await axios
       .post(`${baseUrl}/api/auth/register`)
@@ -131,5 +133,67 @@ describe('auth', () => {
 
     expect(err3.response.status).toBe(400);
     expect(err3.response.data.error).toMatchSnapshot();
+  });
+
+  test('register - should reject if username is too short', async () => {
+    const err = await axios
+      .post(`${baseUrl}/api/auth/register`, { username: 'ts', password: '123123', confirmPassword: '123123' })
+      .catch(e => e);
+
+    expect(err.response.status).toBe(400);
+    expect(err.response.data.error).toMatchSnapshot();
+  });
+
+  test('register - should reject if password is too short', async () => {
+    const err = await axios
+      .post(`${baseUrl}/api/auth/register`, { username: 'test', password: '12345', confirmPassword: '12345' })
+      .catch(e => e);
+
+    expect(err.response.status).toBe(400);
+    expect(err.response.data.error).toMatchSnapshot();
+  });
+
+  test('register - should reject if password and confirmation do not match', async () => {
+    const err = await axios
+      .post(`${baseUrl}/api/auth/register`, { username: 'test', password: '123123', confirmPassword: '456456' })
+      .catch(e => e);
+
+    expect(err.response.status).toBe(400);
+    expect(err.response.data.error).toMatchSnapshot();
+  });
+
+  test('register - should reject if username is already taken', async () => {
+    const registrationData = generateRegistrationData();
+    const testUser = await axios
+      .post(`${baseUrl}/api/auth/register`, registrationData)
+      .then(res => res.data.user);
+
+    const err = await axios
+      .post(`${baseUrl}/api/auth/register`, {
+        username: testUser.username,
+        password: registrationData.password,
+        confirmPassword: registrationData.password,
+      })
+      .catch(e => e);
+
+    expect(err.response.status).toBe(400);
+    expect(err.response.data.error).toMatchSnapshot();
+  });
+
+  test('register - should create and return user with token on success', async () => {
+    const registrationData = generateRegistrationData();
+    const registerResponse = await axios
+      .post(`${baseUrl}/api/auth/register`, registrationData)
+      .then(res => res.data);
+
+    const userFromDb = db
+      .get('users')
+      .getById(registerResponse.user.id)
+      .value();
+
+    expect(registerResponse.user).toEqual(userToJson(userFromDb));
+    expect(registerResponse.user.passwordHash).not.toBeDefined();
+    expect(registerResponse.token).toBeDefined();
+    expect(typeof registerResponse.token).toBe('string');
   });
 });

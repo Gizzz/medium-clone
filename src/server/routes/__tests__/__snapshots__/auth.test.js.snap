@@ -10,9 +10,17 @@ exports[`auth login - should require username and password 3`] = `"Username and 
 
 exports[`auth login - should return 404 if username does not exist 1`] = `"User not found. Check the username."`;
 
-exports[`auth register - request with empty payload should fail 1`] = `"All fields are required."`;
+exports[`auth register - should fail on request with empty payload 1`] = `"All fields are required."`;
 
-exports[`auth register - request with empty payload should fail 2`] = `"All fields are required."`;
+exports[`auth register - should fail on request with empty payload 2`] = `"All fields are required."`;
+
+exports[`auth register - should reject if password and confirmation do not match 1`] = `"Password and confirmation do not match."`;
+
+exports[`auth register - should reject if password is too short 1`] = `"Password should be at least 6 symbols long."`;
+
+exports[`auth register - should reject if username is already taken 1`] = `"This username is already taken."`;
+
+exports[`auth register - should reject if username is too short 1`] = `"Username should be at least 3 symbols long."`;
 
 exports[`auth register - should require all fields 1`] = `"All fields are required."`;
 
