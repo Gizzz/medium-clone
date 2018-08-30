@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import startServer from '../../startServer';
 import config from '../../config';
+import { initDb, generateRegistrationData } from '../testUtils/db';
 
 describe('auth', () => {
   const baseUrl = `http://localhost:${config.defaultPort}`;
@@ -12,6 +13,10 @@ describe('auth', () => {
   });
 
   afterAll(() => server.close());
+
+  beforeEach(() => {
+    initDb();
+  });
 
   test('login - should require username and password', async () => {
     const err1 = await axios
@@ -59,14 +64,21 @@ describe('auth', () => {
   });
 
   test('login - should return user with token on success', async () => {
-    const userInput = { username: 'john', password: '123123' };
+    const registrationData = generateRegistrationData();
+    const testUser = await axios
+      .post(`${baseUrl}/api/auth/register`, registrationData)
+      .then(res => res.data.user);
 
-    const userOutput = await axios
-      .post(`${baseUrl}/api/auth/login`, userInput)
+    const loginResponse = await axios
+      .post(`${baseUrl}/api/auth/login`, {
+        username: registrationData.username,
+        password: registrationData.password,
+      })
       .then(res => res.data);
 
-    expect(userOutput.user.username).toBe(userInput.username);
-    expect(userOutput.user.password).not.toBeDefined();
-    expect(userOutput.token).toBeDefined();
+    expect(loginResponse.user.username).toBe(testUser.username);
+    expect(loginResponse.user.password).not.toBeDefined();
+    expect(loginResponse.token).toBeDefined();
+    expect(typeof loginResponse.token).toBe('string');
   });
 });
