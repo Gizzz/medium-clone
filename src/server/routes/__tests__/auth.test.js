@@ -27,7 +27,7 @@ describe('auth', () => {
     expect(err1.response.data.error).toMatchSnapshot();
 
     const err2 = await axios
-      .post(`${baseUrl}/api/auth/login`, { password: '123' })
+      .post(`${baseUrl}/api/auth/login`, { password: '123123' })
       .catch(e => e);
 
     expect(err2.response.status).toBe(400);
@@ -45,7 +45,7 @@ describe('auth', () => {
     const err = await axios
       .post(`${baseUrl}/api/auth/login`, {
         username: '__this_name_should_not_exist__',
-        password: '123456',
+        password: '123123',
       })
       .catch(e => e);
 
@@ -90,5 +90,46 @@ describe('auth', () => {
     expect(loginResponse.user.password).not.toBeDefined();
     expect(loginResponse.token).toBeDefined();
     expect(typeof loginResponse.token).toBe('string');
+  });
+
+  test('register - request with empty payload should fail', async () => {
+    // no payload object
+    const err1 = await axios
+      .post(`${baseUrl}/api/auth/register`)
+      .catch(e => e);
+
+    expect(err1.response.status).toBe(400);
+    expect(err1.response.data.error).toMatchSnapshot();
+
+    // empty payload object
+    const err2 = await axios
+      .post(`${baseUrl}/api/auth/register`, {})
+      .catch(e => e);
+
+    expect(err2.response.status).toBe(400);
+    expect(err2.response.data.error).toMatchSnapshot();
+  });
+
+  test('register - should require all fields', async () => {
+    const err1 = await axios
+      .post(`${baseUrl}/api/auth/register`, { username: 'test' })
+      .catch(e => e);
+
+    expect(err1.response.status).toBe(400);
+    expect(err1.response.data.error).toMatchSnapshot();
+
+    const err2 = await axios
+      .post(`${baseUrl}/api/auth/register`, { username: 'test', password: '123123' })
+      .catch(e => e);
+
+    expect(err2.response.status).toBe(400);
+    expect(err2.response.data.error).toMatchSnapshot();
+
+    const err3 = await axios
+      .post(`${baseUrl}/api/auth/register`, { username: 'test', confirmPassword: '123123' })
+      .catch(e => e);
+
+    expect(err3.response.status).toBe(400);
+    expect(err3.response.data.error).toMatchSnapshot();
   });
 });
