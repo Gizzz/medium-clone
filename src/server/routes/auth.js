@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
   _.forOwn(reqBody, (value) => {
     if (typeof value !== 'string') { throw new Error('Unexpected data type.'); }
   });
-  reqBody.username = reqBody.username.trim();
+  reqBody.username = reqBody.username ? reqBody.username.trim() : reqBody.username;
 
   const validationResult = validateRegistrationData(reqBody);
   if (!validationResult.isValid) {
