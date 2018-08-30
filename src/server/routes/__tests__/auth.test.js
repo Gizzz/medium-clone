@@ -4,7 +4,7 @@ import startServer from '../../startServer';
 import config from '../../config';
 import db from '../../db';
 import { userToJson } from '../../utils';
-import { initDb, generateRegistrationData } from '../testUtils/db';
+import { initDb, generateRegistrationData, createUserInDb } from '../testUtils/db';
 
 describe('auth', () => {
   const baseUrl = `http://localhost:${config.defaultPort}`;
@@ -55,13 +55,14 @@ describe('auth', () => {
     expect(err.response.data.error).toMatchSnapshot();
   });
 
-  test('login - should check password', async () => {
+  test('login - should check password hash', async () => {
+    // create test user to check password against
+    //
     const registrationData = generateRegistrationData();
-    const testUser = await axios
-      .post(`${baseUrl}/api/auth/register`, registrationData)
-      .then(res => res.data.user);
-
-    expect(testUser.username).toBe(registrationData.username);
+    await createUserInDb({
+      username: registrationData.username,
+      password: registrationData.password,
+    });
 
     const wrongPassword = registrationData.password.repeat(2);
     const err = await axios
@@ -77,9 +78,10 @@ describe('auth', () => {
 
   test('login - should return user with token on success', async () => {
     const registrationData = generateRegistrationData();
-    const testUser = await axios
-      .post(`${baseUrl}/api/auth/register`, registrationData)
-      .then(res => res.data.user);
+    const userFromDb = await createUserInDb({
+      username: registrationData.username,
+      password: registrationData.password,
+    });
 
     const loginResponse = await axios
       .post(`${baseUrl}/api/auth/login`, {
@@ -88,7 +90,7 @@ describe('auth', () => {
       })
       .then(res => res.data);
 
-    expect(loginResponse.user).toEqual(testUser);
+    expect(loginResponse.user).toEqual(userToJson(userFromDb));
     expect(loginResponse.user.passwordHash).not.toBeDefined();
     expect(loginResponse.token).toBeDefined();
     expect(typeof loginResponse.token).toBe('string');
@@ -163,17 +165,16 @@ describe('auth', () => {
   });
 
   test('register - should reject if username is already taken', async () => {
+    // create test user to check username against
+    //
     const registrationData = generateRegistrationData();
-    const testUser = await axios
-      .post(`${baseUrl}/api/auth/register`, registrationData)
-      .then(res => res.data.user);
+    await createUserInDb({
+      username: registrationData.username,
+      password: registrationData.password,
+    });
 
     const err = await axios
-      .post(`${baseUrl}/api/auth/register`, {
-        username: testUser.username,
-        password: registrationData.password,
-        confirmPassword: registrationData.password,
-      })
+      .post(`${baseUrl}/api/auth/register`, registrationData)
       .catch(e => e);
 
     expect(err.response.status).toBe(400);
@@ -182,18 +183,18 @@ describe('auth', () => {
 
   test('register - should create and return user with token on success', async () => {
     const registrationData = generateRegistrationData();
-    const registerResponse = await axios
+    const registrationResponse = await axios
       .post(`${baseUrl}/api/auth/register`, registrationData)
       .then(res => res.data);
 
     const userFromDb = db
       .get('users')
-      .getById(registerResponse.user.id)
+      .getById(registrationResponse.user.id)
       .value();
 
-    expect(registerResponse.user).toEqual(userToJson(userFromDb));
-    expect(registerResponse.user.passwordHash).not.toBeDefined();
-    expect(registerResponse.token).toBeDefined();
-    expect(typeof registerResponse.token).toBe('string');
+    expect(registrationResponse.user).toEqual(userToJson(userFromDb));
+    expect(registrationResponse.user.passwordHash).not.toBeDefined();
+    expect(registrationResponse.token).toBeDefined();
+    expect(typeof registrationResponse.token).toBe('string');
   });
 });
