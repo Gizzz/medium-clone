@@ -4,7 +4,9 @@ import db from '../../db';
 import dbData from '../../db/db-data.json';
 
 const initDb = () => {
-  db.setState(dbData);
+  db
+    .setState(dbData)
+    .write();
 };
 
 const generateRegistrationData = (overrides = {}) => {
