@@ -27,7 +27,7 @@ const createUserInDb = async (userCredentials = {}, overrides = {}) => {
   const username = userCredentials.username || faker.internet.userName();
   const password = userCredentials.password || faker.internet.password(6);
 
-  const saltRounds = 10;
+  const saltRounds = 1;
   const passwordHash = await bcrypt.hash(password, saltRounds);
 
   const maxUserId = db
