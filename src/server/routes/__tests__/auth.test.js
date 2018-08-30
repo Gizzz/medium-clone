@@ -45,7 +45,7 @@ describe('auth', () => {
     const err = await axios
       .post(`${baseUrl}/api/auth/login`, {
         username: '__this_name_should_not_exist__',
-        password: '123',
+        password: '123456',
       })
       .catch(e => e);
 
@@ -54,9 +54,19 @@ describe('auth', () => {
   });
 
   test('login - should check password', async () => {
-    const wrongPassword = '123456';
+    const registrationData = generateRegistrationData();
+    const testUser = await axios
+      .post(`${baseUrl}/api/auth/register`, registrationData)
+      .then(res => res.data.user);
+
+    expect(testUser.username).toBe(registrationData.username);
+
+    const wrongPassword = registrationData.password.repeat(2);
     const err = await axios
-      .post(`${baseUrl}/api/auth/login`, { username: 'john', password: wrongPassword })
+      .post(`${baseUrl}/api/auth/login`, {
+        username: registrationData.username,
+        password: wrongPassword,
+      })
       .catch(e => e);
 
     expect(err.response.status).toBe(400);
