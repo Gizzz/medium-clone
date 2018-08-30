@@ -86,7 +86,7 @@ describe('auth', () => {
       })
       .then(res => res.data);
 
-    expect(loginResponse.user.username).toBe(testUser.username);
+    expect(loginResponse.user).toEqual(testUser);
     expect(loginResponse.user.password).not.toBeDefined();
     expect(loginResponse.token).toBeDefined();
     expect(typeof loginResponse.token).toBe('string');
