@@ -5,4 +5,5 @@ module.exports = {
   clearMocks: true,
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
+  watchPathIgnorePatterns: ['<rootDir>/src/server/db/'],
 };
