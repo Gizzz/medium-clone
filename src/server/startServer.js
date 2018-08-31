@@ -47,9 +47,16 @@ async function startServer(port) {
     await createTestDbFile();
   }
 
+  const server = await createServer(app, actualPort, mode);
+  return server;
+}
+
+// helpers
+
+async function createServer(app, port, mode) {
   return new Promise(resolve => {
-    const server = app.listen(actualPort, () => {
-      console.log(`Medium-clone server is running on port ${actualPort} (mode: ${mode})`);
+    const server = app.listen(port, () => {
+      console.log(`Medium-clone server is running on port ${port} (mode: ${mode})`);
       resolve(server);
     });
   });
