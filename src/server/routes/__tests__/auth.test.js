@@ -4,7 +4,7 @@ import startServer from '../../startServer';
 import config from '../../config';
 import db from '../../db';
 import { userToJson } from '../../utils';
-import { initDb, generateRegistrationData, createUserInDb } from '../testUtils/db';
+import { initDb, createUserInDb, generateRegistrationData } from '../testUtils';
 
 describe('auth', () => {
   const baseUrl = `http://localhost:${config.defaultPort}`;

@@ -12,17 +12,6 @@ const initDb = () => {
     .write();
 };
 
-const generateRegistrationData = (overrides = {}) => {
-  const password = faker.internet.password(6);
-
-  return {
-    username: faker.internet.userName(),
-    password,
-    confirmPassword: password,
-    ...overrides,
-  };
-};
-
 const createUserInDb = async (userCredentials = {}, overrides = {}) => {
   // todo: this is copypasted from auth/createNewUser, think about removing duplication
 
@@ -53,10 +42,21 @@ const createUserInDb = async (userCredentials = {}, overrides = {}) => {
   return newUser;
 };
 
+const generateRegistrationData = (overrides = {}) => {
+  const password = faker.internet.password(6);
+
+  return {
+    username: faker.internet.userName(),
+    password,
+    confirmPassword: password,
+    ...overrides,
+  };
+};
+
 export {
   initDb,
-  generateRegistrationData,
   createUserInDb,
+  generateRegistrationData,
 };
 
 /* eslint import/no-extraneous-dependencies: off */
