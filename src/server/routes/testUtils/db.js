@@ -5,8 +5,10 @@ import db from '../../db';
 import dbData from '../../db/db-data.json';
 
 const initDb = () => {
+  const dbDataCopy = JSON.parse(JSON.stringify(dbData));
+
   db
-    .setState(dbData)
+    .setState(dbDataCopy)
     .write();
 };
 
