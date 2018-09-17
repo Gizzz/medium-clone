@@ -13,6 +13,7 @@ This project is a tribute to the [medium.com](https://medium.com/), the great pl
 tech features:
 - authorization (jwt token-based)
 - react's new context api for state management
+- integration tests for server
 - code-splitting
 - responsive web desing
 - mobile-first
