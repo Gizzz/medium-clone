@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './BlogHeader.module.scss';
+
 const BlogHeader = ({ name, description }) => {
   const windowWidth = window.innerWidth;
   const dpr = window.devicePixelRatio;
@@ -25,12 +27,12 @@ const BlogHeader = ({ name, description }) => {
   }
 
   return (
-    <div className="blog-header" style={{ backgroundImage: `url(https://cdn-images-1.medium.com/max/${imgWidth}/1*JVwi6UU_AJzhMkp1kMVc7A.jpeg)` }}>
-      <div className="overlay" />
-      <div className="inner">
-        <div className="text">
-          <h1 className="name">{name}</h1>
-          <h2 className="description">{description}</h2>
+    <div className={styles['blog-header']} style={{ backgroundImage: `url(https://cdn-images-1.medium.com/max/${imgWidth}/1*JVwi6UU_AJzhMkp1kMVc7A.jpeg)` }}>
+      <div className={styles.overlay} />
+      <div className={styles.inner}>
+        <div className={styles.text}>
+          <h1 className={styles.name}>{name}</h1>
+          <h2 className={styles.description}>{description}</h2>
         </div>
       </div>
     </div>
