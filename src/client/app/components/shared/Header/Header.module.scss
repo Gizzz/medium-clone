@@ -94,7 +94,7 @@ header.page {
 
       .actions {
         .user {
-          :global .avatar {
+          :global(.avatar) {
             img {
               width: 32px;
               height: 32px;
