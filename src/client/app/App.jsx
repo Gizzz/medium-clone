@@ -2,11 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
+// import global styles here to apply them before any other styles
+import './assets/styles/index.scss';
+
 import { ContextWrapper, withContext } from './utils/context';
 import Header from './components/shared/Header';
 import Spinner from './components/shared/Spinner';
-
-import './assets/styles/index.scss';
 
 const LoginScreen = Loadable({
   loader: () => import('./components/screens/login/LoginScreen'),

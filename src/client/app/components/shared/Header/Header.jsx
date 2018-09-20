@@ -5,8 +5,10 @@ import axios from 'axios';
 
 import { GlobalContextConsumer } from '../../../utils/context';
 import storageHelper from '../../../utils/storageHelper';
-import GuestLinks from './GuestLinks';
-import UserLinks from './UserLinks';
+import GuestLinks from './components/GuestLinks';
+import UserLinks from './components/UserLinks';
+
+import styles from './Header.module.scss';
 
 const Header = ({ history }) => (
   <GlobalContextConsumer>
@@ -27,12 +29,12 @@ const Header = ({ history }) => (
       };
 
       return (
-        <header className="page">
-          <div className="inner">
-            <div className="link-set">
-              <Link className="logo" to="/" />
+        <header className={styles.page}>
+          <div className={styles.inner}>
+            <div className={styles['link-set']}>
+              <Link className={styles.logo} to="/" />
             </div>
-            <div className="actions">
+            <div className={styles.actions}>
               {
                 user
                   ? <UserLinks user={user} onLogout={handleLogout} />
