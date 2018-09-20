@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Footing.module.scss';
 
 const Footing = () => (
-  <div className="footing">
-    <div className="inner">
+  <div className={styles.footing}>
+    <div className={styles.inner}>
       <nav>
         <ul>
           <li><a target="_blank" rel="noopener noreferrer" href="https://blog.kentcdodds.com/about">About kentcdodds</a></li>

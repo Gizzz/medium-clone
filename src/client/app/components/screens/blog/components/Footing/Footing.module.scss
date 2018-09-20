@@ -1,8 +1,11 @@
 .footing {
-  @include make-center();
+  // extract to mixin equivalent
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1040px;
 
   .inner {
-    border-top: 1px solid $color-devider-light_gray;
+    border-top: 1px solid var(--color-devider-light_gray);
     padding-top: 20px;
     padding-bottom: 30px;
 
@@ -17,10 +20,10 @@
           a {
             font-size: 16px;
             line-height: 35px;
-            color: $color-font-secondary;
+            color: var(--color-font-secondary);
 
             &:hover {
-              color: $color-font-secondary-hover;
+              color: var(--color-font-secondary-hover);
             }
           }
         }
@@ -49,7 +52,7 @@
                 left: 4px;
                 top: 7px;
                 content: '\00B7';
-                color: $color-font-secondary;
+                color: var(--color-font-secondary);
               }
             }
 
