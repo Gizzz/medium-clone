@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './PostImage.module.scss';
+
 const PostImage = ({ post }) => (
-  <figure className="post-image">
+  <figure className={styles['post-image']}>
     <picture>
       <source
         srcSet={`https://cdn-images-1.medium.com/max/400/${post.imgDescriptor} 1x, https://cdn-images-1.medium.com/max/800/${post.imgDescriptor} 2x`}
@@ -22,9 +24,6 @@ const PostImage = ({ post }) => (
       />
       <img src={`https://cdn-images-1.medium.com/max/1600/${post.imgDescriptor}`} />
     </picture>
-    {/* <figcaption>
-      Photo by <a href="#">Simon Caspersen</a> on <a href="#">Unsplash</a>
-    </figcaption> */}
   </figure>
 );
 
