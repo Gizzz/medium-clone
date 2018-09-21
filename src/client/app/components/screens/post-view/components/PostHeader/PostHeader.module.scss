@@ -1,12 +1,11 @@
 article {
   header {
-    @include make-center(700px);
-
     display: flex;
-    padding-top: 20px;
-    padding-bottom: 10px;
+    margin: 0 auto;
+    padding: 20px 20px 10px;
+    max-width: 740px;
 
-    .avatar {
+    :global(.avatar) {
       flex: 0 0 auto;
       align-self: center;
     }
@@ -19,7 +18,7 @@ article {
 
       .title {
         a {
-          color: $color-font-primary;
+          color: var(--color-font-primary);
   
           &:hover {
             text-decoration: underline;
@@ -32,7 +31,7 @@ article {
       }
 
       .descr {
-        color: $color-font-secondary;
+        color: var(--color-font-secondary);
         max-height: 40px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -42,7 +41,7 @@ article {
       }
 
       .meta {
-        color: $color-font-secondary;
+        color: var(--color-font-secondary);
       }
     }
   }
