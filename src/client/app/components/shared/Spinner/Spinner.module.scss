@@ -4,8 +4,8 @@
 
 .spinner {
   // sets both width & height, accepts any units
-  $spinner-width: 70px;
-  $spinner-color: lighten($color-link-text, 5%);
+  --spinner-width: 70px;
+  --spinner-color: #{lighten(#1C9963, 5%)};
 
   margin: 0 auto;
   padding: 30px 0;
@@ -14,7 +14,7 @@
   .loader {
     position: relative;
     margin: 0 auto;
-    width: $spinner-width;
+    width: var(--spinner-width);
 
     &:before {
       content: '';
@@ -66,10 +66,10 @@
 
   @keyframes color {
     0% {
-      stroke: $spinner-color;
+      stroke: var(--spinner-color);
     }
     100% {
-      stroke: $spinner-color;
+      stroke: var(--spinner-color);
     }
   }
 }
