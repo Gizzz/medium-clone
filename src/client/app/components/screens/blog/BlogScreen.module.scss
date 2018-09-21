@@ -1,8 +1,7 @@
 .posts {
-  @include make-center();
-
-  padding-top: 30px;
-  padding-bottom: 40px;
+  margin: 0 auto;
+  padding: 30px 20px 40px;
+  max-width: 1040px;
 }
 
 @media (min-width: 768px) {

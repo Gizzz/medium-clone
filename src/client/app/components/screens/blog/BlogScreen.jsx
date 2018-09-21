@@ -7,6 +7,8 @@ import PreContent from '../../shared/PreContent';
 import PostPreview from './components/PostPreview';
 import Footing from './components/Footing';
 
+import styles from './BlogScreen.module.scss';
+
 const BlogScreen = ({ data }) => {
   if (!data) {
     return (<Spinner />);
@@ -18,7 +20,7 @@ const BlogScreen = ({ data }) => {
     <main className="blog-home">
       <BlogHeader name={blog.name} description={blog.description} />
       <PreContent />
-      <div className="posts">
+      <div className={styles.posts}>
         {
           posts.map((post) => (
             <PostPreview post={post} author={author} key={post.id} />
