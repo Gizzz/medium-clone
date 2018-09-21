@@ -6,6 +6,8 @@ import MediumEditor from 'medium-editor';
 import Spinner from '../../shared/Spinner';
 import InputFields from './components/InputFields';
 
+import styles from './PostEditScreen.module.scss';
+
 class PostEditScreen extends React.Component {
   state = {
     isDataLoaded: false,
@@ -117,12 +119,12 @@ class PostEditScreen extends React.Component {
 
     return (
       <main className="post-edit">
-        <div className="post-meta">
-          <div className="user-info">
+        <div className={styles['post-meta']}>
+          <div className={styles['user-info']}>
             <a className="avatar avatar--middle avatar--circled" href="#">
               <img src={author.avatarUrl} />
             </a>
-            <a href="#" className="author">{author.username}</a>
+            <a className={styles.author} href="#">{author.username}</a>
           </div>
           <InputFields
             inputData={inputData}
@@ -131,9 +133,9 @@ class PostEditScreen extends React.Component {
           />
         </div>
         <div className="post-text js-editable" dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
-        <div className="post-actions">
+        <div className={styles['post-actions']}>
           <button className="btn" onClick={this.handleSaveBtnClick}>Save</button>
-          <Link className="cancel" to={`/blogs/${post.blogId}/posts/${post.id}`}>Cancel</Link>
+          <Link className={styles.cancel} to={`/blogs/${post.blogId}/posts/${post.id}`}>Cancel</Link>
         </div>
       </main>
     );
