@@ -8,6 +8,8 @@ import PostHeader from './components/PostHeader';
 import PostImage from './components/PostImage';
 import PostText from './components/PostText';
 
+import styles from './PostViewScreen.module.scss';
+
 const PostViewScreen = ({ data }) => {
   if (!data) {
     return (<Spinner />);
@@ -24,7 +26,7 @@ const PostViewScreen = ({ data }) => {
           <PostImage post={post} />
           <PostText post={post} />
         </section>
-        <footer>
+        <footer className={styles['post-footer']}>
           <Link className="btn" to={`/blogs/${post.blogId}/posts/${post.id}/edit`}>
             Edit
           </Link>
