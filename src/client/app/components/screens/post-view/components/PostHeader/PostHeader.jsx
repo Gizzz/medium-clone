@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './PostHeader.module.scss';
 
 const PostHeader = ({ post, author }) => (
-  <header>
+  <header className={styles['post-header']}>
     <a className="avatar avatar--big avatar--circled" href="https://blog.kentcdodds.com/@kentcdodds" target="_blank" rel="noopener noreferrer">
       <img src={author.avatarUrl} />
     </a>
