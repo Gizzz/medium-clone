@@ -15,7 +15,7 @@ tech features:
 - react's new context api for state management
 - integration tests for server
 - code-splitting
-- css-modules (at css-modules branch - in progress)
+- css-modules (at css-modules branch - work in progress)
 - responsive web desing
 - mobile-first
 
