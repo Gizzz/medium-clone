@@ -17,7 +17,7 @@ const PostViewScreen = ({ data }) => {
 
   return (
     <main className="blog-post">
-      <PreContent />
+      <PreContent withoutBottomLine />
       <article>
         <PostHeader post={post} author={author} />
         <section className="content">

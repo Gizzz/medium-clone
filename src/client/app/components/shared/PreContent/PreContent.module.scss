@@ -1,11 +1,17 @@
 .pre-content {
-  @include make-center();
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1040px;
   
   .inner {
     display: flex;
-    border-bottom: 1px solid $color-devider-light_gray;
+    border-bottom: 1px solid var(--color-devider-light_gray);
     padding-top: 11px;
     padding-bottom: 12px;
+
+    &--without-bottom-line {
+      border-bottom: none;
+    }
 
     .links {
       flex: 1 1 auto;
@@ -17,16 +23,16 @@
       a {
         margin-right: 8px;
         font-size: 16px;
-        color: $color-font-secondary;
+        color: var(--color-font-secondary);
 
         &:hover {
-          color: $color-font-secondary-hover;
+          color: var(--color-font-secondary-hover);
         }
       }
 
       .devider {
         padding-left: 12px;
-        border-left: 1px solid $color-font-primary;
+        border-left: 1px solid var(--color-font-primary);
       }
     }
 
