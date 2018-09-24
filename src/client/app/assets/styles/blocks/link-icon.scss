@@ -1,0 +1,10 @@
+.link-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  fill: var(--color-font-secondary);
+
+  &:hover {
+    fill: var(--color-font-secondary-hover);
+  }
+}

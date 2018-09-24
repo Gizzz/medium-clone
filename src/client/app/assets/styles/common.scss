@@ -20,7 +20,7 @@ html {
   font-family: 'medium-content-sans-serif-font', sans-serif;
   font-size: 20px;
   line-height: 1.2;
-  color: $color-font-primary;
+  color: var(--color-font-primary);
   text-rendering: optimizeLegibility;
 }
 
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  color: $color-link-text;
+  color: var(--color-link-text);
 }
 
 ul {

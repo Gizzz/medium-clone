@@ -1,13 +1,7 @@
-@import '_variables';
-@import '_mixins';
+@import '_root-custom-props';
 
 @import 'vendor/index';
 @import 'fonts';
 @import 'common';
 
-@import '../../components/shared/styles/index';
-@import '../../components/screens/login/styles/index';
-@import '../../components/screens/register/styles/index';
-@import '../../components/screens/blog/styles/index';
-@import '../../components/screens/post-view/styles/index';
-@import '../../components/screens/post-edit/styles/index';
+@import 'blocks/index';

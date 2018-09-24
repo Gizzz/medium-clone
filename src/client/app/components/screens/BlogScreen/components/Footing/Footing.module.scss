@@ -1,0 +1,67 @@
+.footing {
+  // extract to mixin equivalent, like so: make-center(width: 1000px, padding: 20px)
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1040px;
+
+  .inner {
+    border-top: 1px solid var(--color-devider-light_gray);
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    nav {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          width: 100%;
+
+          a {
+            font-size: 16px;
+            line-height: 35px;
+            color: var(--color-font-secondary);
+
+            &:hover {
+              color: var(--color-font-secondary-hover);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .footing {
+    .inner {
+      nav {
+        ul {
+          flex-wrap: nowrap;
+          justify-content: flex-end;
+
+          li {
+            width: auto;
+
+            &:not(:first-child) {
+              position: relative;
+              padding-left: 15px;
+
+              &:before {
+                position: absolute;
+                left: 4px;
+                top: 7px;
+                content: '\00B7';
+                color: var(--color-font-secondary);
+              }
+            }
+
+            &:last-child {
+              padding-right: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.post-image {
+  margin-top: 20px;
+  margin-bottom: 52px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .post-image {
+    margin-bottom: 80px;
+  }
+}

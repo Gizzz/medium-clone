@@ -1,0 +1,70 @@
+header.page {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--color-devider-light_gray);
+  background-color: var(--color-bg-white-transparent);
+
+  .inner {
+    // extract to mixin equivalent, like so: make-center(width: 1000px, padding: 20px)
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1040px;
+
+    display: flex;
+    align-items: center;
+    height: 56px;
+
+    .link-set {
+      // flex-item props
+      flex: 1 1 auto;
+      // flex-container props
+      display: flex;
+      align-items: center;
+
+      .logo {
+        display: block;
+        padding: 5px;
+        width: 45px;
+        height: 45px;
+        background: url(./assets/logo.png) no-repeat 50% 50%;
+        background-size: 35px 35px;
+        opacity: .84;
+      }
+    }
+
+    .actions {
+      font-size: 16px;
+
+      .guest,
+      .user {
+        display: flex;
+        align-items: center;
+
+        .sign-in,
+        .sign-out {
+          margin-right: 11px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  header.page {
+    .inner {
+      height: 65px;
+
+      .actions {
+        .user {
+          :global(.avatar) {
+            img {
+              width: 32px;
+              height: 32px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

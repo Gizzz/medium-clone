@@ -1,5 +1,0 @@
-@mixin make-center($width: 1000px, $padding: 20px) {
-  margin: 0 auto;
-  padding: 0 $padding;
-  max-width: $width + $padding * 2;
-}
