@@ -18,7 +18,7 @@ const PostViewScreen = ({ data }) => {
   const { post, author } = data;
 
   return (
-    <main className="blog-post">
+    <main>
       <PreContent withoutBottomLine />
       <article>
         <PostHeader post={post} author={author} />

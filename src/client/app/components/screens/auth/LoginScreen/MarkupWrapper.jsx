@@ -9,7 +9,7 @@ const MarkupWrapper = ({ children }) => {
   const encodedRedirectUrl = urlHelper.computeEncodedRedirectUrl();
 
   return (
-    <main className="login">
+    <main>
       <div className={styles.container}>
         <div className={styles['outer-box']}>
           <div className={styles['inner-box']}>

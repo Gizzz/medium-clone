@@ -119,7 +119,7 @@ class PostEditScreen extends React.Component {
     const inputData = { ...this.state.formData };
 
     return (
-      <main className="post-edit">
+      <main>
         <div className={styles['post-meta']}>
           <div className={styles['user-info']}>
             <a className="avatar avatar--middle avatar--circled" href="#">

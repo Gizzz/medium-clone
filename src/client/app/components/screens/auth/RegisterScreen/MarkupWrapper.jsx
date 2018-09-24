@@ -10,7 +10,7 @@ const MarkupWrapper = ({ children }) => {
 
   return (
     (
-      <main className="login login--register">
+      <main>
         <div className={`${styles.container} ${styles['container--screen_registration']}`}>
           <div className={styles['outer-box']}>
             <div className={styles['inner-box']}>

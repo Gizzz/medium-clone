@@ -17,7 +17,7 @@ const BlogScreen = ({ data }) => {
   const { blog, author, posts } = data;
 
   return (
-    <main className="blog-home">
+    <main>
       <BlogHeader name={blog.name} description={blog.description} />
       <PreContent />
       <div className={styles.posts}>
