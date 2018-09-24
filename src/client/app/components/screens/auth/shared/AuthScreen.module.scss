@@ -86,6 +86,20 @@
   }
 }
 
+.container--screen_registration {
+  .outer-box {
+    background-color: #E8F3EC;
+    
+    .inner-box {
+      .account {
+        a {
+          color: #03a87c;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     min-height: calc(100vh - var(--height-header-desktop));

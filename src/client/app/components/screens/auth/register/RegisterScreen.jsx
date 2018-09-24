@@ -7,6 +7,8 @@ import { contextShape } from '../../../../utils/context';
 import storageHelper from '../../../../utils/storageHelper';
 import MarkupWrapper from './MarkupWrapper';
 
+import styles from '../shared/AuthScreen.module.scss';
+
 class RegisterScreen extends React.Component {
   state = {
     username: '',
@@ -56,7 +58,7 @@ class RegisterScreen extends React.Component {
 
   render() {
     const errorBox = (
-      <div className="error">
+      <div className={styles.error}>
         {this.state.error}
       </div>
     );
@@ -67,7 +69,7 @@ class RegisterScreen extends React.Component {
           <input type="text" value={this.state.username} onChange={this.handleInputChange} name="username" placeholder="Username" required />
           <input type="password" value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="Password" required />
           <input type="password" value={this.state.confirmPassword} onChange={this.handleInputChange} name="confirmPassword" placeholder="Confirm Password" required />
-          <div className="button-box">
+          <div className={styles['button-box']}>
             <button className="btn btn--inverted">Sign up</button>
           </div>
           {this.state.error && errorBox}
