@@ -29,12 +29,12 @@ const BlogScreen_Container = Loadable({
 });
 
 const PostViewScreen_Container = Loadable({
-  loader: () => import('./components/screens/post-view/PostViewScreen_Container'),
+  loader: () => import('./components/screens/PostViewScreen/PostViewScreen_Container'),
   loading: Spinner,
 });
 
 const PostEditScreen_Container = Loadable({
-  loader: () => import('./components/screens/post-edit/PostEditScreen_Container'),
+  loader: () => import('./components/screens/PostEditScreen/PostEditScreen_Container'),
   loading: Spinner,
 });
 
