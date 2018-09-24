@@ -24,7 +24,7 @@ const RegisterScreen = Loadable({
 const RegisterScreenWithContext = withContext(RegisterScreen);
 
 const BlogScreen_Container = Loadable({
-  loader: () => import('./components/screens/blog/BlogScreen_Container'),
+  loader: () => import('./components/screens/BlogScreen/BlogScreen_Container'),
   loading: Spinner,
 });
 
