@@ -3,26 +3,27 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import urlHelper from '../../../../utils/urlHelper';
+import styles from '../shared/AuthScreen.module.scss';
 
 const MarkupWrapper = ({ children }) => {
   const encodedRedirectUrl = urlHelper.computeEncodedRedirectUrl();
 
   return (
     <main className="login">
-      <div className="container">
-        <div className="outer-box">
-          <div className="inner-box">
+      <div className={styles.container}>
+        <div className={styles['outer-box']}>
+          <div className={styles['inner-box']}>
             <h1>Welcome back.</h1>
             <h2>Sign in to access your personalized homepage, follow authors and topics you love, and clap for stories that matter to you.</h2>
 
             {children}
 
-            <div className="account">
+            <div className={styles.account}>
               No account?
               {' '}
               <Link to={`/register?redirectUrl=${encodedRedirectUrl}`}>Create one</Link>.
             </div>
-            <div className="terms">
+            <div className={styles.terms}>
               To make original Medium work, they(Medium team) log user data and share it with service providers. Click "Sign in" above to accept Medium’s
               {' '}
               <a href="https://medium.com/policy/medium-terms-of-service-9db0094a1e0f" target="_blank" rel="noopener noreferrer">
