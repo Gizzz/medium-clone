@@ -7,6 +7,7 @@ import Spinner from '../../shared/Spinner';
 import InputFields from './components/InputFields';
 
 import styles from './PostEditScreen.module.scss';
+import postTextStyles from '../../shared/PostText/PostText.module.scss';
 
 class PostEditScreen extends React.Component {
   state = {
@@ -132,7 +133,7 @@ class PostEditScreen extends React.Component {
             onCheckboxChange={this.handleCheckboxChange}
           />
         </div>
-        <div className="post-text js-editable" dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
+        <div className={`${postTextStyles['post-text']} js-editable`} dangerouslySetInnerHTML={{ __html: post.contentMarkup }} />
         <div className={styles['post-actions']}>
           <button className="btn" onClick={this.handleSaveBtnClick}>Save</button>
           <Link className={styles.cancel} to={`/blogs/${post.blogId}/posts/${post.id}`}>Cancel</Link>

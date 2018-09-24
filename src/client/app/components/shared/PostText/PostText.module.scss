@@ -1,7 +1,7 @@
 .post-text {
-  @include make-center($width: 700px);
-
-  padding-bottom: 40px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  max-width: 740px;
   font-family: 'medium-content-serif-font', serif;
   font-size: 18px;
   line-height: 1.58;
@@ -62,7 +62,7 @@
   strike {
     margin: 0 2px;
     padding: 3px 4px;
-    background-color: $color-bg-code;
+    background-color: var(--color-bg-code);
     font-family: Menlo,Monaco,"Courier New",Courier,monospace;
     font-size: 14px;
     text-decoration-color: transparent;
@@ -71,7 +71,7 @@
   pre {
     margin-top: 35px;
     padding: 20px;
-    background-color: $color-bg-code;
+    background-color: var(--color-bg-code);
     font-family: Menlo,Monaco,"Courier New",Courier,monospace;
     font-size: 14px;
     line-height: 1.4;
@@ -104,7 +104,7 @@
   blockquote {
     margin-top: 21px;
     margin-left: -20px;
-    border-left: 3px solid $color-font-primary;
+    border-left: 3px solid var(--color-font-primary);
     padding-left: 17px;
   }
 }
