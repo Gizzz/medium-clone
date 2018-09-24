@@ -10,14 +10,14 @@ import Header from './components/shared/Header';
 import Spinner from './components/shared/Spinner';
 
 const LoginScreen = Loadable({
-  loader: () => import('./components/screens/login/LoginScreen'),
+  loader: () => import('./components/screens/auth/login/LoginScreen'),
   loading: Spinner,
 });
 
 const LoginScreenWithContext = withContext(LoginScreen);
 
 const RegisterScreen = Loadable({
-  loader: () => import('./components/screens/register/RegisterScreen'),
+  loader: () => import('./components/screens/auth/register/RegisterScreen'),
   loading: Spinner,
 });
 

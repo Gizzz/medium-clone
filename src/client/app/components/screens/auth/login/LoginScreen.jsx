@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import queryString from 'query-string';
 
-import { contextShape } from '../../../utils/context';
-import storageHelper from '../../../utils/storageHelper';
+import { contextShape } from '../../../../utils/context';
+import storageHelper from '../../../../utils/storageHelper';
 import MarkupWrapper from './MarkupWrapper';
 
-class RegisterScreen extends React.Component {
+class LoginScreen extends React.Component {
   state = {
     username: '',
     password: '',
-    confirmPassword: '',
     error: null,
   }
 
@@ -28,10 +27,9 @@ class RegisterScreen extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('/api/auth/register', {
+    axios.post('/api/auth/login', {
       username: this.state.username,
       password: this.state.password,
-      confirmPassword: this.state.confirmPassword,
     })
       .then((response) => {
         storageHelper.setData({
@@ -66,9 +64,8 @@ class RegisterScreen extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.username} onChange={this.handleInputChange} name="username" placeholder="Username" required />
           <input type="password" value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="Password" required />
-          <input type="password" value={this.state.confirmPassword} onChange={this.handleInputChange} name="confirmPassword" placeholder="Confirm Password" required />
           <div className="button-box">
-            <button className="btn btn--inverted">Sign up</button>
+            <button className="btn btn--inverted">Sign in</button>
           </div>
           {this.state.error && errorBox}
         </form>
@@ -77,9 +74,9 @@ class RegisterScreen extends React.Component {
   }
 }
 
-RegisterScreen.propTypes = {
+LoginScreen.propTypes = {
   history: PropTypes.object.isRequired,
   context: contextShape.isRequired,
 };
 
-export default RegisterScreen;
+export default LoginScreen;
