@@ -1,13 +1,13 @@
 .btn {
   display: inline-block;
-  border: 1px solid $color-btn-border;
+  border: 1px solid var(--color-btn-border);
   border-radius: 4px;
   padding: 0 14px;
   height: 33px;
   background-color: transparent;
   line-height: 33px;
   font-size: 16px;
-  color: $color-link-text;
+  color: var(--color-link-text);
   cursor: pointer;
 
   &--smallest {
@@ -17,8 +17,8 @@
   }
 
   &--inverted {
-    border-color: $color-btn-border;
-    background-color: $color-btn-border;
+    border-color: var(--color-btn-border);
+    background-color: var(--color-btn-border);
     color: white;
   }
 }

@@ -2,9 +2,9 @@
   display: inline-block;
   width: 25px;
   height: 25px;
-  fill: $color-font-secondary;
+  fill: var(--color-font-secondary);
 
   &:hover {
-    fill: $color-font-secondary-hover;
+    fill: var(--color-font-secondary-hover);
   }
 }
